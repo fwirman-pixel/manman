@@ -1,0 +1,1373 @@
+<!DOCTYPE html><html lang="en" style="width: 100%; min-height: 100%; overflow-x: hidden; overflow-y: auto; height: auto;" class="stitch-anim-fade-in" data-stitch-orig-opacity="1"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}[id]{scroll-margin-top:calc(72px + 20px)}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}.bg-grid-pattern{background-size:24px 24px;background-image:radial-gradient(circle,#000000 1px,transparent 1px);}
+@keyframes subtleGlitchIntro {
+  0% {
+    opacity: 0;
+    transform: translate(-2px, 1px);
+    filter: drop-shadow(1.5px 0 0 #00f2fe) drop-shadow(-1.5px 0 0 #ff3b7b);
+  }
+  20% {
+    opacity: 0.85;
+    transform: translate(2px, -1px);
+    filter: drop-shadow(-1.5px 0 0 #00f2fe) drop-shadow(1.5px 0 0 #ff3b7b);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(-1px, 0.5px);
+    filter: drop-shadow(1px 0 0 #00f2fe);
+  }
+  65% {
+    transform: translate(1px, -0.5px);
+    filter: drop-shadow(-0.5px 0 0 #ff3b7b);
+  }
+  85%, 100% {
+    opacity: 1;
+    transform: translate(0, 0);
+    filter: none;
+  }
+}
+.glitch-intro-subtle {
+  animation: subtleGlitchIntro 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+/* Chrome Dino Retro Runner Animations */
+@keyframes dinoGroundMove {
+  0% { background-position-x: 0px; }
+  100% { background-position-x: -300px; }
+}
+@keyframes dinoRunStep {
+  0%, 49.9% { transform: translateY(0); }
+  50%, 100% { transform: translateY(-1px); }
+}
+@keyframes dinoLegToggle1 {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes dinoLegToggle2 {
+  0%, 49% { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
+@keyframes dinoJumpCycle {
+  0%, 25% { bottom: 6px; }
+  28% { bottom: 26px; }
+  31% { bottom: 30px; }
+  34% { bottom: 26px; }
+  37%, 65% { bottom: 6px; }
+  68% { bottom: 28px; }
+  71% { bottom: 32px; }
+  74% { bottom: 28px; }
+  77%, 100% { bottom: 6px; }
+}
+@keyframes cactusSlide1 {
+  0% { transform: translateX(1100px); }
+  100% { transform: translateX(-80px); }
+}
+@keyframes cactusSlide2 {
+  0% { transform: translateX(1600px); }
+  100% { transform: translateX(-80px); }
+}
+@keyframes cloudMoveSlow {
+  0% { transform: translateX(1200px); }
+  100% { transform: translateX(-150px); }
+}
+.dino-ground-track {
+  background-image: radial-gradient(circle, #000000 1.2px, transparent 1.2px), linear-gradient(to right, #000 50%, transparent 50%);
+  background-size: 24px 6px, 12px 2px;
+  background-position: 0 100%, 0 calc(100% - 2px);
+  background-repeat: repeat-x;
+  animation: dinoGroundMove 1.2s linear infinite;
+}
+.dino-runner-sprite {
+  animation: dinoJumpCycle 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.dino-legs-a {
+  animation: dinoLegToggle1 0.2s steps(1) infinite;
+}
+.dino-legs-b {
+  animation: dinoLegToggle2 0.2s steps(1) infinite;
+}
+.cactus-track-1 {
+  animation: cactusSlide1 5s linear infinite;
+}
+.cactus-track-2 {
+  animation: cactusSlide2 5s linear infinite 2.5s;
+}
+.cloud-float-1 {
+  animation: cloudMoveSlow 18s linear infinite;
+}
+.cloud-float-2 {
+  animation: cloudMoveSlow 26s linear infinite 9s;
+}
+</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary-fixed":"#3f0016","outline":"#8f6f74","secondary-fixed-dim":"#e4c542","surface-container-low":"#f3f2ff","on-secondary":"#ffffff","outline-variant":"#e3bdc3","on-surface-variant":"#5b3f44","on-secondary-fixed":"#221b00","on-surface":"#151a30","surface":"#fbf8ff","tertiary-container":"#007ea6","surface-container-lowest":"#ffffff","tertiary-fixed-dim":"#75d1ff","surface-variant":"#dde1ff","secondary-container":"#ffde59","surface-tint":"#bc0051","inverse-primary":"#ffb1c0","surface-container-high":"#e4e7ff","surface-bright":"#fbf8ff","on-secondary-container":"#756100","on-tertiary-fixed-variant":"#004d67","surface-container-highest":"#dde1ff","on-error":"#ffffff","primary-fixed-dim":"#ffb1c0","background":"#fbf8ff","on-tertiary":"#ffffff","error-container":"#ffdad6","on-error-container":"#93000a","primary":"#b7004e","inverse-on-surface":"#f0efff","error":"#ba1a1a","surface-container":"#ececff","tertiary-fixed":"#c2e8ff","on-secondary-fixed-variant":"#544600","secondary":"#705d00","on-primary":"#ffffff","on-tertiary-fixed":"#001e2b","on-primary-container":"#fffbff","primary-fixed":"#ffd9df","on-primary-fixed-variant":"#90003c","inverse-surface":"#2a2f47","on-tertiary-container":"#fbfcff","on-background":"#151a30","secondary-fixed":"#ffe16e","tertiary":"#006384","primary-container":"#df1e65","surface-dim":"#d4d8f7"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.25rem","space-md":"1rem","space-sm":"0.5rem","gutter-sm":"1rem","space-xl":"2.5rem","margin-sm":"1.25rem","margin":"3rem","space-lg":"1.5rem","gutter":"1.5rem"},"fontFamily":{"body-sm":["Inter"],"label-lg":["Inter"],"body-lg":["Inter"],"headline-lg-mobile":["Bricolage Grotesque"],"display-xl":["Bricolage Grotesque"],"label-md":["Inter"],"headline-md":["Bricolage Grotesque"],"body-md":["Inter"],"headline-sm":["Bricolage Grotesque"],"headline-lg":["Bricolage Grotesque"],"label-sm":["Inter"],"display-xl-mobile":["Bricolage Grotesque"]},"fontSize":{"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"headline-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.01em","fontWeight":"700"}],"display-xl":["64px",{"lineHeight":"72px","letterSpacing":"-0.03em","fontWeight":"800"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"700"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"700"}],"headline-lg":["44px",{"lineHeight":"52px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"600"}],"display-xl-mobile":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"800"}]}}}};</script></head><body class="bg-surface bg-grid-pattern text-on-surface font-body-md text-body-md min-h-screen" style="overflow-x: clip; overflow-y: visible; height: auto;"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b-[3px] border-black shadow-[0_4px_0px_#000000]"><div class="h-20 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><div class="flex items-center gap-1.5 px-2.5 py-1 bg-secondary-container border-[2px] border-black rounded-[8px] shadow-[2px_2px_0px_#000000] shrink-0 select-none"><span class="material-symbols-outlined text-[20px] text-on-secondary-fixed">videogame_asset</span><span class="font-headline-sm text-headline-sm text-sm uppercase tracking-tight text-on-secondary-fixed font-black">FP.SYS</span></div><div class="hidden sm:flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm uppercase tracking-tight text-on-surface">FIRMAN PRATAMA</span><span class="px-space-xs py-0.5 border-[2px] border-black bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm uppercase rounded-full shadow-[1px_1px_0px_#000000]">MOTION &amp; ART</span></div></div><nav class="flex flex-1 min-w-0 justify-center items-center gap-space-xs bg-surface-container px-space-sm py-1.5 rounded-full border-[2px] border-black overflow-x-auto max-w-full whitespace-nowrap" data-active-classes="bg-primary-container text-on-primary-container border-[2px] border-black shadow-[2px_2px_0px_#000000]"><a class="nav-item px-space-sm py-1 rounded-full font-label-md uppercase transition-all text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-fixed border-[2px] border-transparent font-medium" data-target="overview" href="#overview">OVERVIEW</a>
+<a class="nav-item px-space-sm py-1 rounded-full font-label-md text-label-md uppercase transition-all text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-fixed border-transparent font-medium border-[2px]" data-target="bio-specs" href="#bio-specs">BIO &amp; SPECS</a>
+<a class="nav-item px-space-sm py-1 rounded-full font-label-md text-label-md uppercase transition-all text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-fixed border-transparent font-medium border-[2px]" data-target="showcase" href="#showcase">PROJECTS</a>
+<a class="nav-item px-space-sm py-1 rounded-full font-label-md text-label-md uppercase transition-all text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-fixed border-transparent font-medium border-[2px]" data-target="photo-vault" href="#photo-vault">ARCHIVE</a>
+<a class="nav-item px-space-sm py-1 rounded-full font-label-md text-label-md uppercase transition-all bg-primary-container text-on-primary-container border-[2px] border-black shadow-[2px_2px_0px_#000000] font-bold" data-target="contact-section" href="#contact-section" aria-current="page">CONTACT</a></nav><div class="flex items-center gap-space-sm shrink-0"><div class="hidden 2xl:flex flex-col items-end text-right font-label-sm text-label-sm leading-tight mr-space-xs"><span class="font-bold text-on-surface">sehueog86@gmail.com</span><span class="text-tertiary-container font-semibold">@se_hyuking</span></div><a class="hidden md:inline-flex items-center justify-center px-space-md py-2 bg-secondary-container text-on-secondary-fixed font-label-lg text-label-lg uppercase border-[3px] border-black rounded-[8px] shadow-[3px_3px_0px_#000000] hover:bg-primary-container hover:text-on-primary-container hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#000000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[0px_0px_0px_#000000] transition-all" data-path="contact" href="#contact-section">HIRE ME / LET'S TALK</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center border-[2px] border-black shadow-[2px_2px_0px_#000000]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-transparent pb-24"><div class="flex flex-col w-full">
+<!-- Top Marquee Ticker -->
+<div class="w-full bg-secondary-container border-b-[3px] border-black overflow-hidden py-2 select-none"><style class="">@keyframes marquee-ltr { 0% { transform: translateX(-50%); } 100% { transform: translateX(0%); } } .animate-marquee-ltr { display: flex; width: max-content; animation: marquee-ltr 22s linear infinite; will-change: transform; }</style><div class="flex items-center gap-space-lg whitespace-nowrap animate-marquee-ltr"><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ MOTION DESIGN</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ 2D ANIMATION</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ 3D VECTOR</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ CHARACTER DESIGN</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ KEYFRAME MASTER</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ AFTER EFFECTS PRO</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ LOTTIE INTERACTION</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ POP VECTOR KINETICS</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ MOTION DESIGN</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ 2D ANIMATION</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ 3D VECTOR</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ CHARACTER DESIGN</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ KEYFRAME MASTER</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ AFTER EFFECTS PRO</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ LOTTIE INTERACTION</span><span class="font-headline-sm text-headline-sm tracking-tight text-on-secondary-fixed flex items-center gap-space-sm">✦ POP VECTOR KINETICS</span></div></div>
+<!-- SECTION 1: HERO SECTION -->
+<section class="w-full px-gutter-sm sm:px-gutter py-space-xl" id="overview">
+<div class="max-w-7xl mx-auto">
+<div class="relative w-full rounded-[16px] border-[3px] border-black bg-tertiary-fixed shadow-[6px_6px_0px_#000000] overflow-hidden p-space-md sm:p-space-xl pb-16 sm:pb-20">
+<!-- Retro 8-bit Chrome Dino Runner Bottom Strip -->
+<div class="absolute bottom-0 left-0 right-0 h-14 overflow-hidden pointer-events-none border-t-[2px] border-black/20 bg-black/5 rounded-b-[14px] z-0 select-none">
+<!-- Retro Clouds Floating -->
+
+
+<!-- Retro Hi-Score Display & Jump Badge -->
+<div class="absolute top-1.5 right-3 flex items-center gap-2 pointer-events-auto">
+<span class="hidden sm:inline-flex px-1.5 py-0.5 bg-secondary-container border border-black rounded text-[9px] font-mono font-bold text-on-secondary-fixed shadow-[1px_1px_0px_#000] cursor-pointer hover:bg-primary hover:text-white transition-colors">
+      JUMP! 🦖 / SPACE
+    </span>
+<div class="font-mono text-[10px] tracking-wider font-bold text-black/75 bg-surface-container-lowest/80 px-2 py-0.5 rounded border border-black/30 shadow-[1px_1px_0px_#000000]">
+<span class="opacity-60 mr-1">HI</span><span class="opacity-80">00984</span> <span class="text-primary font-black animate-pulse">00125</span>
+</div>
+</div>
+<!-- Running Dino Sprite -->
+<div class="absolute left-10 sm:left-16 bottom-1.5 z-10 dino-runner-sprite">
+<svg class="w-8 h-9 text-black fill-current drop-shadow-[1px_1px_0px_rgba(255,255,255,0.4)]" viewBox="0 0 88 94" xmlns="http://www.w3.org/2000/svg">
+<path d="M48 0h34v8h-34zM44 8h42v8h-42zM44 16h44v8h-44zM44 24h44v8h-44zM44 32h24v8h-24zM44 40h36v8h-36zM36 32h8v24h-8zM28 40h8v24h-8zM20 48h8v16h-8zM12 56h8v16h-8zM4 64h8v16H4zM0 72h4v8H0zM28 64h36v8H28zM32 72h24v8H32zM70 12h4v4h-4z"></path>
+<!-- Stepping Leg 1 -->
+<g class="dino-legs-a">
+<path d="M36 80h8v14h8v-4h-4v-6h-4v-4h-8zM52 80h8v8h-8z"></path>
+</g>
+<!-- Stepping Leg 2 -->
+<g class="dino-legs-b">
+<path d="M36 80h8v8h-8zM48 80h8v14h8v-4h-4v-6h-4v-4h-8z"></path>
+</g>
+</svg>
+</div>
+<!-- Cactus Obstacle Group 1 (Small & Double) -->
+<div class="absolute bottom-1.5 left-0 flex items-end gap-1 cactus-track-1">
+<!-- Double Cactus -->
+<svg class="w-4 h-7 text-black fill-current" viewBox="0 0 16 28" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 0h4v28H6zM0 8h6v12H0zM10 6h6v12h-6z"></path>
+</svg>
+<svg class="w-5 h-9 text-black fill-current" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 0h8v40H8zM0 12h8v16H0zM0 16h4v8H0zM16 8h8v16h-8zM20 12h4v8h-4z"></path>
+</svg>
+</div>
+<!-- Cactus Obstacle Group 2 (Single Cactus) -->
+<div class="absolute bottom-1.5 left-0 flex items-end cactus-track-2">
+<svg class="w-5 h-9 text-black fill-current" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 0h8v40H8zM0 12h8v16H0zM0 16h4v8H0zM16 8h8v16h-8zM20 12h4v8h-4z"></path>
+</svg>
+</div>
+<!-- Infinite Ground Track Line -->
+<div class="absolute bottom-0 left-0 right-0 h-2.5 w-full dino-ground-track border-t border-black/30"></div>
+</div>
+<!-- Floating Sticker Elements -->
+<div class="absolute -top-4 -right-4 w-24 h-24 bg-secondary-container border-[3px] border-black rounded-full flex items-center justify-center rotate-12 shadow-[3px_3px_0px_#000000] z-20 pointer-events-none hidden sm:flex badge-pulse">
+<span class="font-headline-sm text-headline-sm text-on-secondary-fixed text-center leading-none">NEW<br>2025</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center relative z-10">
+<!-- Left Column: Typography & Badges -->
+<div class="lg:col-span-7 flex flex-col items-start gap-space-md">
+<!-- Badge Badges Row -->
+<div class="flex flex-wrap items-center gap-space-xs sm:gap-space-sm">
+<div class="relative inline-flex items-center select-none"><style>@keyframes pixelAuraPulse { 0%, 100% { box-shadow: 2px 2px 0px #000000, 0 0 0 2px #ffe16e, 0 0 10px #ffe16e, 0 0 18px #df1e65; transform: scale(1); } 50% { box-shadow: 2px 2px 0px #000000, 0 0 0 3px #ffde59, 0 0 16px #00f2fe, 0 0 26px #ffe16e; transform: scale(1.02); } } @keyframes pixelSparkleDrift1 { 0% { transform: translate(0, 0) scale(0.6) rotate(0deg); opacity: 0.2; } 50% { transform: translate(-8px, -12px) scale(1.2) rotate(45deg); opacity: 1; } 100% { transform: translate(-14px, -22px) scale(0.4) rotate(90deg); opacity: 0; } } @keyframes pixelSparkleDrift2 { 0% { transform: translate(0, 0) scale(0.5) rotate(0deg); opacity: 0.1; } 50% { transform: translate(10px, -14px) scale(1.3) rotate(-30deg); opacity: 1; } 100% { transform: translate(18px, -24px) scale(0.3) rotate(-60deg); opacity: 0; } } @keyframes pixelSparkleDrift3 { 0% { transform: translate(0, 0) scale(0.6); opacity: 0.2; } 50% { transform: translate(8px, 10px) scale(1.1); opacity: 0.95; } 100% { transform: translate(14px, 18px) scale(0.2); opacity: 0; } } @keyframes pixelSparkleDrift4 { 0% { transform: translate(0, 0) scale(0.7); opacity: 0.3; } 50% { transform: translate(-10px, 8px) scale(1.2); opacity: 1; } 100% { transform: translate(-16px, 16px) scale(0.3); opacity: 0; } } @keyframes auraRaysTwinkle { 0%, 100% { opacity: 0.4; transform: scale(0.9); } 50% { opacity: 0.95; transform: scale(1.12); } }</style><div class="absolute -inset-1.5 rounded-full pointer-events-none z-0 opacity-80" style="animation: auraRaysTwinkle 2s ease-in-out infinite alternate;"><div class="w-full h-full rounded-full border border-dashed border-[#ffe16e]/70"></div></div><div class="absolute -top-3 -left-2 text-[#ffe16e] pointer-events-none font-mono text-[11px] font-black z-10" style="animation-duration: 2.2s; animation-timing-function: ease-out; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: pixelSparkleDrift1; animation-timeline: auto; animation-range: normal; text-shadow: rgb(0, 0, 0) 1px 1px 0px;">✦</div><div class="absolute -top-3.5 right-2 text-[#00f2fe] pointer-events-none font-mono text-[12px] font-black z-10" style="animation-duration: 2.6s; animation-timing-function: ease-out; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: pixelSparkleDrift2; animation-timeline: auto; animation-range: normal; text-shadow: rgb(0, 0, 0) 1px 1px 0px;">✦</div><div class="absolute -bottom-2.5 right-4 text-[#ffde59] pointer-events-none font-mono text-[10px] font-black z-10" style="animation-duration: 2.4s; animation-timing-function: ease-out; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: pixelSparkleDrift3; animation-timeline: auto; animation-range: normal; text-shadow: rgb(0, 0, 0) 1px 1px 0px;">+</div><div class="absolute -bottom-2 -left-1 text-[#ffd9df] pointer-events-none font-mono text-[9px] font-black z-10" style="animation-duration: 2.1s; animation-timing-function: ease-out; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: pixelSparkleDrift4; animation-timeline: auto; animation-range: normal; text-shadow: rgb(0, 0, 0) 1px 1px 0px;">✦</div><div class="absolute top-1/2 -right-3 -translate-y-1/2 w-2 h-2 bg-[#ffe16e] border border-black rounded-[1px] pointer-events-none z-10 shadow-[1px_1px_0px_#000]" style="animation: pixelSparkleDrift2 2s infinite ease-in-out 1.1s;"></div><div class="absolute top-0 -left-2.5 w-1.5 h-1.5 bg-[#df1e65] border border-black rounded-[1px] pointer-events-none z-10 shadow-[1px_1px_0px_#000]" style="animation: pixelSparkleDrift1 1.9s infinite ease-in-out 0.7s;"></div><span class="relative z-10 px-space-sm py-1 bg-primary text-on-primary font-label-lg text-label-lg uppercase rounded-full border-[2px] border-black flex items-center gap-1 transition-all" style="animation-duration: 2.4s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: pixelAuraPulse; animation-timeline: auto; animation-range: normal;"><span class="material-symbols-outlined text-[16px]">palette</span> GRAPHIC DESIGNER</span></div>
+<div class="relative inline-flex items-center select-none group"><style>@keyframes slimeDripMorph { 0%, 100% { border-radius: 9999px 9999px 9999px 9999px; transform: translateY(0); } 30% { border-radius: 9999px 9999px 85% 90%; transform: translateY(1px); } 60% { border-radius: 95% 90% 9999px 9999px; transform: translateY(-0.5px); } } @keyframes dripStretchDrop1 { 0%, 15% { transform: scaleY(0.7) translateY(-2px); opacity: 0.9; } 45% { transform: scaleY(1.5) translateY(1px); opacity: 1; } 65% { transform: scaleY(2.2) translateY(5px); opacity: 1; } 80% { transform: scaleY(0.8) translateY(14px) scaleX(0.7); opacity: 0; } 85%, 100% { transform: scaleY(0.4) translateY(-3px); opacity: 0; } } @keyframes dripStretchDrop2 { 0%, 25% { transform: scaleY(0.8) translateY(-1px); opacity: 0.9; } 55% { transform: scaleY(1.8) translateY(3px); opacity: 1; } 75% { transform: scaleY(2.4) translateY(8px); opacity: 1; } 88% { transform: scaleY(0.6) translateY(18px) scaleX(0.6); opacity: 0; } 92%, 100% { transform: scaleY(0.4) translateY(-2px); opacity: 0; } } @keyframes dripStretchDrop3 { 0%, 35% { transform: scaleY(0.6) translateY(-2px); opacity: 0.85; } 65% { transform: scaleY(1.7) translateY(2px); opacity: 1; } 82% { transform: scaleY(2.2) translateY(7px); opacity: 1; } 94% { transform: scaleY(0.5) translateY(16px) scaleX(0.5); opacity: 0; } 98%, 100% { transform: scaleY(0.3) translateY(-2px); opacity: 0; } } @keyframes dripSplashRays { 0%, 100% { filter: drop-shadow(2px 2px 0px #000000) drop-shadow(0 0 6px rgba(0, 126, 166, 0.4)); } 50% { filter: drop-shadow(2px 2px 0px #000000) drop-shadow(0 0 12px rgba(117, 209, 255, 0.8)); } }</style><span class="relative z-10 px-space-sm py-1 bg-tertiary-container text-on-tertiary font-label-lg text-label-lg uppercase rounded-full border-[2px] border-black shadow-[2px_2px_0px_#000000] flex items-center gap-1 transition-all" style="animation-duration: 3.4s, 2.8s; animation-timing-function: ease-in-out, ease-in-out; animation-iteration-count: infinite, infinite; animation-direction: normal, normal; animation-fill-mode: none, none; animation-play-state: running, running; animation-name: slimeDripMorph, dripSplashRays; animation-timeline: auto; animation-range: normal;"><span class="material-symbols-outlined text-[16px]">motion_blur</span> MOTION DESIGNER<span class="absolute -top-1 right-3 w-1.5 h-1 bg-white/70 rounded-full pointer-events-none"></span></span><div class="absolute -bottom-3.5 left-0 right-0 h-4 pointer-events-none z-20 overflow-visible"><div class="absolute left-4 -top-1 origin-top" style="animation: dripStretchDrop1 2.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;"><svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[1px_1px_0px_#000000]"><path d="M2 0 C2 4, 1 7, 1 10 C1 13.5, 3.2 16, 6 16 C8.8 16, 11 13.5, 11 10 C11 7, 10 4, 10 0 Z" fill="#007ea6" stroke="#000000" stroke-width="1.5"></path><circle cx="4.5" cy="9.5" r="1" fill="#ffffff"></circle><circle cx="4" cy="12" r="0.6" fill="#75d1ff"></circle></svg></div><div class="absolute left-1/2 -ml-2 -top-1 origin-top" style="animation: dripStretchDrop2 3.1s cubic-bezier(0.45, 0, 0.55, 1) infinite 0.6s;"><svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[1px_1px_0px_#000000]"><path d="M2.5 0 C2.5 5, 1 9, 1 12.5 C1 16.5, 3.7 19, 7 19 C10.3 19, 13 16.5, 13 12.5 C13 9, 11.5 5, 11.5 0 Z" fill="#007ea6" stroke="#000000" stroke-width="1.5"></path><circle cx="5" cy="11" r="1.2" fill="#ffffff"></circle><circle cx="4.5" cy="14.5" r="0.8" fill="#75d1ff"></circle></svg></div><div class="absolute right-5 -top-1 origin-top" style="animation: dripStretchDrop3 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite 1.2s;"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[1px_1px_0px_#000000]"><path d="M1.5 0 C1.5 3.5, 0.8 6, 0.8 9 C0.8 12, 2.7 14.5, 5 14.5 C7.3 14.5, 9.2 12, 9.2 9 C9.2 6, 8.5 3.5, 8.5 0 Z" fill="#007ea6" stroke="#000000" stroke-width="1.5"></path><circle cx="3.8" cy="8.5" r="0.8" fill="#ffffff"></circle></svg></div><div class="absolute left-9 -top-0.5 w-2 h-1.5 bg-[#007ea6] border-b border-x border-black rounded-b-full"></div><div class="absolute right-12 -top-0.5 w-2.5 h-2 bg-[#007ea6] border-b border-x border-black rounded-b-full"></div></div></div>
+<div class="relative inline-flex items-center select-none group"><style>@keyframes pixelFlameFlicker1 { 0%, 100% { transform: scaleY(1) scaleX(1) translateY(0); filter: drop-shadow(0 0 4px #ff5722); } 25% { transform: scaleY(1.25) scaleX(0.92) translateY(-2px); filter: drop-shadow(0 0 8px #ffe16e); } 50% { transform: scaleY(0.9) scaleX(1.08) translateY(1px); filter: drop-shadow(0 0 5px #df1e65); } 75% { transform: scaleY(1.35) scaleX(0.88) translateY(-3px); filter: drop-shadow(0 0 10px #ffde59); } } @keyframes pixelFlameFlicker2 { 0%, 100% { transform: scaleY(1.1) scaleX(0.95) translateY(-1px); } 30% { transform: scaleY(0.85) scaleX(1.1) translateY(1px); } 60% { transform: scaleY(1.3) scaleX(0.85) translateY(-3px); } 85% { transform: scaleY(0.95) scaleX(1.05) translateY(0); } } @keyframes emberRise1 { 0% { transform: translate(0, 0) scale(0.6); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 0.85; } 100% { transform: translate(-8px, -18px) scale(1.2) rotate(25deg); opacity: 0; } } @keyframes emberRise2 { 0% { transform: translate(0, 0) scale(0.5); opacity: 0; } 25% { opacity: 1; } 75% { opacity: 0.9; } 100% { transform: translate(9px, -22px) scale(1.1) rotate(-35deg); opacity: 0; } } @keyframes emberRise3 { 0% { transform: translate(0, 0) scale(0.7); opacity: 0; } 30% { opacity: 1; } 100% { transform: translate(-3px, -25px) scale(1.3) rotate(45deg); opacity: 0; } } @keyframes emberRise4 { 0% { transform: translate(0, 0) scale(0.4); opacity: 0; } 20% { opacity: 1; } 100% { transform: translate(12px, -16px) scale(1) rotate(-20deg); opacity: 0; } } @keyframes badgeHeatPulse { 0%, 100% { box-shadow: 2px 2px 0px #000000, 0 0 0 1px #ff5722, 0 0 8px rgba(255, 87, 34, 0.4); } 50% { box-shadow: 2px 2px 0px #000000, 0 0 0 2px #ffe16e, 0 0 14px rgba(255, 222, 89, 0.7); } }</style><div class="absolute -top-3.5 inset-x-2 h-4 pointer-events-none z-0 flex justify-around items-end overflow-visible"><svg class="w-4 h-5 drop-shadow-[1px_1px_0px_#000] -mr-1" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: pixelFlameFlicker1 0.45s steps(3) infinite alternate;"><path d="M6 0h4v3H6zM4 3h8v4H4zM2 7h12v5H2zM0 12h16v8H0z" fill="#df1e65"></path><path d="M6 4h4v3H6zM4 7h8v4H4zM2 11h12v5H2zM2 16h12v4H2z" fill="#fc9838"></path><path d="M6 8h4v3H6zM4 11h8v4H4zM6 15h4v5H6z" fill="#ffe16e"></path></svg><svg class="w-5 h-6 drop-shadow-[1px_1px_0px_#000]" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: pixelFlameFlicker2 0.38s steps(4) infinite alternate 0.1s;"><path d="M6 0h4v3H6zM4 3h8v4H4zM2 7h12v5H2zM0 12h16v8H0z" fill="#df1e65"></path><path d="M6 3h4v4H6zM4 7h8v4H4zM2 11h12v5H2zM2 16h12v4H2z" fill="#fc9838"></path><path d="M6 7h4v4H6zM4 11h8v4H4zM6 15h4v5H6z" fill="#ffde59"></path></svg><svg class="w-3.5 h-4.5 drop-shadow-[1px_1px_0px_#000] -ml-1" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: pixelFlameFlicker1 0.52s steps(3) infinite alternate 0.2s;"><path d="M6 0h4v3H6zM4 3h8v4H4zM2 7h12v5H2zM0 12h16v8H0z" fill="#df1e65"></path><path d="M6 4h4v3H6zM4 7h8v4H4zM2 11h12v5H2z" fill="#fc9838"></path><path d="M6 8h4v3H6zM4 11h8v3H4z" fill="#ffe16e"></path></svg></div><div class="absolute -left-2 top-0.5 pointer-events-none z-0"><svg class="w-3 h-4 drop-shadow-[1px_1px_0px_#000] -rotate-45" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: pixelFlameFlicker2 0.4s steps(3) infinite alternate 0.15s;"><path d="M6 0h4v3H6zM4 3h8v4H4zM2 7h12v5H2zM0 12h16v8H0z" fill="#df1e65"></path><path d="M4 5h8v5H4zM2 10h12v6H2z" fill="#fc9838"></path><path d="M6 9h4v4H6zM4 13h8v4H4z" fill="#ffe16e"></path></svg></div><div class="absolute -right-2 top-0.5 pointer-events-none z-0"><svg class="w-3 h-4 drop-shadow-[1px_1px_0px_#000] rotate-45" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: pixelFlameFlicker1 0.42s steps(3) infinite alternate 0.05s;"><path d="M6 0h4v3H6zM4 3h8v4H4zM2 7h12v5H2zM0 12h16v8H0z" fill="#df1e65"></path><path d="M4 5h8v5H4zM2 10h12v6H2z" fill="#fc9838"></path><path d="M6 9h4v4H6zM4 13h8v4H4z" fill="#ffe16e"></path></svg></div><div class="absolute -top-1 left-2 w-1.5 h-1.5 bg-[#ffe16e] border border-black rounded-[1px] pointer-events-none z-20 shadow-[1px_1px_0px_#000]" style="animation: emberRise1 1.6s ease-out infinite;"></div><div class="absolute -top-1.5 left-1/2 -ml-1 w-2 h-2 bg-[#ffde59] border border-black rounded-[1px] pointer-events-none z-20 shadow-[1px_1px_0px_#000]" style="animation: emberRise3 1.9s ease-out infinite 0.4s;"></div><div class="absolute -top-1 right-3 w-1.5 h-1.5 bg-[#df1e65] border border-black rounded-[1px] pointer-events-none z-20 shadow-[1px_1px_0px_#000]" style="animation: emberRise2 1.7s ease-out infinite 0.8s;"></div><div class="absolute top-1 -right-2 w-1 h-1 bg-[#fc9838] border border-black rounded-[1px] pointer-events-none z-20 shadow-[1px_1px_0px_#000]" style="animation: emberRise4 1.5s ease-out infinite 0.2s;"></div><span class="relative z-10 px-space-sm py-1 bg-surface-container-lowest text-on-surface font-label-lg text-label-lg uppercase rounded-full border-[2px] border-black flex items-center gap-1 transition-all" style="animation-duration: 1.8s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: badgeHeatPulse; animation-timeline: auto; animation-range: normal;"><span class="text-[#df1e65] font-black text-[11px] drop-shadow-[0.5px_0.5px_0px_#000000] animate-pulse">🔥</span>PORTFOLIO 2026</span></div>
+<span class="relative overflow-visible px-space-sm py-1 bg-secondary-container text-on-secondary-fixed font-label-lg text-label-lg uppercase rounded-full border-[2px] border-black shadow-[2px_2px_0px_#000000] flex items-center gap-1 select-none"><style>@keyframes starBurstFloat1 { 0% { transform: translate(0, 0) scale(0.4) rotate(0deg); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 0.9; } 100% { transform: translate(-14px, -18px) scale(1.1) rotate(-45deg); opacity: 0; } } @keyframes starBurstFloat2 { 0% { transform: translate(0, 0) scale(0.3) rotate(0deg); opacity: 0; } 25% { opacity: 1; } 85% { opacity: 0.85; } 100% { transform: translate(16px, -20px) scale(1.15) rotate(50deg); opacity: 0; } } @keyframes starBurstFloat3 { 0% { transform: translate(0, 0) scale(0.4) rotate(0deg); opacity: 0; } 30% { opacity: 1; } 80% { opacity: 0.9; } 100% { transform: translate(20px, 12px) scale(0.9) rotate(30deg); opacity: 0; } } @keyframes starBurstFloat4 { 0% { transform: translate(0, 0) scale(0.3) rotate(0deg); opacity: 0; } 20% { opacity: 1; } 85% { opacity: 0.85; } 100% { transform: translate(-18px, 10px) scale(1) rotate(-35deg); opacity: 0; } } @keyframes starBurstFloat5 { 0% { transform: translate(0, 0) scale(0.35) rotate(0deg); opacity: 0; } 25% { opacity: 1; } 80% { opacity: 0.95; } 100% { transform: translate(0px, -22px) scale(1.2) rotate(90deg); opacity: 0; } }</style><div class="absolute -top-1 -left-1 text-primary pointer-events-none z-20 drop-shadow-[1px_1px_0px_#000000]" style="animation: starBurstFloat1 2.4s ease-out infinite;"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"></path></svg></div><div class="absolute -top-1.5 right-1 text-[#ffd9df] pointer-events-none z-20 drop-shadow-[1px_1px_0px_#000000]" style="animation: starBurstFloat2 2.7s ease-out infinite 0.6s;"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"></path></svg></div><div class="absolute -bottom-1 -right-1 text-tertiary-container pointer-events-none z-20 drop-shadow-[1px_1px_0px_#000000]" style="animation: starBurstFloat3 2.5s ease-out infinite 1.1s;"><svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"></path></svg></div><div class="absolute -bottom-1.5 left-2 text-[#151a30] pointer-events-none z-20 drop-shadow-[1px_1px_0px_#ffffff]" style="animation: starBurstFloat4 2.8s ease-out infinite 1.5s;"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"></path></svg></div><div class="absolute -top-2 left-1/2 -translate-x-1/2 text-white pointer-events-none z-20 drop-shadow-[1.5px_1.5px_0px_#000000]" style="animation: starBurstFloat5 2.6s ease-out infinite 0.3s;"><svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"></path></svg></div><span class="material-symbols-outlined text-[16px] relative z-10 animate-spin" style="animation-duration: 6s;">kid_star</span><span class="relative z-10 font-bold">18 Y.O</span></span>
+</div>
+<!-- Big Main Display Title -->
+<div class="relative my-space-xs select-none" id="hero-title-power-wrapper"><style>@keyframes chargeJitter { 0% { transform: translate(0, 0) scale(1.02); } 20% { transform: translate(-1.5px, 1px) scale(1.025, 0.98); } 40% { transform: translate(1.5px, -1px) scale(0.985, 1.025); } 60% { transform: translate(-2px, -1px) scale(1.03, 0.97); } 80% { transform: translate(2px, 1px) scale(0.98, 1.03); } 100% { transform: translate(0, 0) scale(1.02); } } @keyframes superChargedAura { 0%, 100% { filter: drop-shadow(4px 4px 0px #000000) drop-shadow(0 0 16px #ffe16e) drop-shadow(0 0 30px #df1e65); transform: scale(1.06) rotate(-0.5deg); } 50% { filter: drop-shadow(4px 4px 0px #000000) drop-shadow(0 0 24px #00f2fe) drop-shadow(0 0 45px #ffe16e); transform: scale(1.07) rotate(0.5deg); } } @keyframes chargeInward1 { 0% { transform: translate(var(--ox), var(--oy)) scale(0); opacity: 0; } 50% { opacity: 1; } 100% { transform: translate(0, 0) scale(1); opacity: 0; } } @keyframes burstShockwave { 0% { transform: translate(-50%, -50%) scale(0.3); opacity: 1; border-width: 8px; } 100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; border-width: 1px; } } @keyframes sparkBurstFly { 0% { transform: translate(0, 0) scale(1.4); opacity: 1; } 100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; } } .charging-active h1 { animation: chargeJitter 0.1s infinite; filter: drop-shadow(4px 4px 0px #000000) drop-shadow(0 0 14px rgba(255, 225, 110, 0.85)) drop-shadow(0 0 24px rgba(223, 30, 101, 0.7)); transition: filter 0.3s ease; } .charged-exploded h1 { animation: superChargedAura 0.8s ease-in-out infinite alternate !important; } .burst-shockwave-ring { position: absolute; top: 45%; left: 50%; width: 220px; height: 100px; border-radius: 9999px; border-style: solid; border-color: #ffe16e; pointer-events: none; transform: translate(-50%, -50%); animation: burstShockwave 0.65s cubic-bezier(0.1, 0.9, 0.2, 1) forwards; z-index: 30; } .power-spark { position: absolute; pointer-events: none; border-radius: 2px; border: 1px solid #000000; box-shadow: 1px 1px 0px #000; z-index: 25; }</style><div class="relative inline-block group cursor-pointer" id="powerup-interactive-zone"><div class="pointer-events-none absolute inset-0 -inset-x-8 -inset-y-4 overflow-visible z-20 hidden" id="power-effects-layer"></div><h1 id="firman-hero-h1" class="font-display-xl text-display-xl-mobile sm:text-display-xl uppercase tracking-tighter text-surface-container-lowest drop-shadow-[4px_4px_0px_#000000] glitch-text transition-transform duration-300 ease-out will-change-transform" style="-webkit-text-stroke: 3px rgb(0, 0, 0);">FIRMAN PRATAMA</h1></div><div class="block"><div class="bg-secondary-container border-[3px] border-black px-space-md py-1 rounded-[8px] shadow-[3px_3px_0px_#000000] inline-block -rotate-1 mt-space-xs"><span class="font-headline-sm text-headline-sm uppercase text-on-secondary-fixed">Y2K POP-VECTOR &amp; MOTION PLAYGROUND</span></div></div><script>(function(){ const zone = document.getElementById('powerup-interactive-zone'); const fxLayer = document.getElementById('power-effects-layer'); const h1 = document.getElementById('firman-hero-h1'); if (!zone || !fxLayer || !h1) return; let chargeTimer = null; let inwardInterval = null; let isBursted = false; function spawnInwardParticle() { if (!fxLayer) return; const p = document.createElement('div'); p.className = 'power-spark w-2 h-2'; const colors = ['#ffe16e', '#df1e65', '#00f2fe', '#ffffff']; p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]; const angle = Math.random() * Math.PI * 2; const dist = 70 + Math.random() * 80; const ox = Math.cos(angle) * dist; const oy = Math.sin(angle) * dist; p.style.setProperty('--ox', ox + 'px'); p.style.setProperty('--oy', oy + 'px'); p.style.left = 'calc(50% + ' + (Math.random() * 200 - 100) + 'px)'; p.style.top = 'calc(45% + ' + (Math.random() * 40 - 20) + 'px)'; p.style.animation = 'chargeInward1 0.4s ease-in forwards'; fxLayer.appendChild(p); setTimeout(() => p.remove(), 450); } function triggerBurst() { isBursted = true; zone.classList.remove('charging-active'); zone.classList.add('charged-exploded'); clearInterval(inwardInterval); const ring = document.createElement('div'); ring.className = 'burst-shockwave-ring'; fxLayer.appendChild(ring); setTimeout(() => ring.remove(), 700); for (let i = 0; i < 28; i++) { const spark = document.createElement('div'); spark.className = 'power-spark'; const size = 4 + Math.random() * 6; spark.style.width = size + 'px'; spark.style.height = size + 'px'; const colors = ['#ffe16e', '#df1e65', '#00f2fe', '#ffffff', '#ffde59']; spark.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]; const angle = (Math.PI * 2 / 28) * i + (Math.random() * 0.2); const dist = 90 + Math.random() * 120; const tx = Math.cos(angle) * dist; const ty = Math.sin(angle) * dist; spark.style.setProperty('--tx', tx + 'px'); spark.style.setProperty('--ty', ty + 'px'); spark.style.left = '50%'; spark.style.top = '45%'; spark.style.animation = 'sparkBurstFly ' + (0.5 + Math.random() * 0.3) + 's cubic-bezier(0.1, 0.8, 0.3, 1) forwards'; fxLayer.appendChild(spark); setTimeout(() => spark.remove(), 850); } } function startCharging() { resetState(); fxLayer.classList.remove('hidden'); zone.classList.add('charging-active'); inwardInterval = setInterval(spawnInwardParticle, 60); chargeTimer = setTimeout(() => { triggerBurst(); }, 1300); } function resetState() { clearTimeout(chargeTimer); clearInterval(inwardInterval); isBursted = false; zone.classList.remove('charging-active', 'charged-exploded'); if (fxLayer) { fxLayer.innerHTML = ''; fxLayer.classList.add('hidden'); } } zone.addEventListener('mouseenter', startCharging); zone.addEventListener('mouseleave', resetState); })();</script></div>
+<p class="font-body-lg text-body-lg text-on-surface max-w-xl font-medium">
+              High-velocity keyframes, kinetic brand commercials, and playful vector universes built with precision timing and unabashed pop energy.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<!-- Call to Actions -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs w-full sm:w-auto">
+<a class="px-space-lg py-3 bg-primary text-on-primary font-label-lg text-label-lg uppercase border-[3px] border-black rounded-[8px] shadow-[4px_4px_0px_#000000] hover:bg-secondary-container hover:text-on-secondary-fixed hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#000000] active:translate-x-1 active:translate-y-1 active:shadow-[0px_0px_0px_#000000] transition-all flex items-center gap-2" href="#showcase">
+<span class="">EXPLORE ARCHIVE</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+<a class="px-space-md py-3 bg-surface-container-lowest text-on-surface font-label-lg text-label-lg uppercase border-[3px] border-black rounded-[8px] shadow-[4px_4px_0px_#000000] hover:bg-secondary-fixed hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#000000] active:translate-x-1 active:translate-y-1 active:shadow-[0px_0px_0px_#000000] transition-all flex items-center gap-2" href="#contact-block">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span class="">GET IN TOUCH</span>
+</a>
+</div>
+</div>
+<!-- Right Column: Arcade Mascot Window Frame -->
+<div class="lg:col-span-5 flex justify-center">
+<div class="w-full max-w-md bg-surface-container-lowest border-[3px] border-black rounded-[14px] shadow-[6px_6px_0px_#000000] overflow-hidden">
+<!-- Window OS Titlebar -->
+<div class="bg-inverse-surface text-inverse-on-surface px-space-sm py-2 border-b-[3px] border-black flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<div class="w-3.5 h-3.5 rounded-full bg-error border-[1.5px] border-black"></div>
+<div class="w-3.5 h-3.5 rounded-full bg-secondary-container border-[1.5px] border-black"></div>
+<div class="w-3.5 h-3.5 rounded-full bg-tertiary-fixed-dim border-[1.5px] border-black"></div>
+</div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-inverse-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary-container">face</span> FIRMAN_PORTRAIT.EXE
+                </span>
+<span class="font-label-sm text-label-sm bg-primary px-1.5 py-0.5 rounded text-on-primary">V2.5</span>
+</div>
+<!-- Canvas / Mascot Stage -->
+<div id="space-shooter-stage" class="relative w-full aspect-square overflow-hidden border-b-[3px] border-black" style="background-color:#070814;background-image:url(&apos;../yfoto/New%20folder/1779803693992.jpg.jpeg&apos;);background-size:cover;background-position:center;"><style>
+      @keyframes logo-hop { 0%,100%{transform:translateY(0)} 25%{transform:translateY(-11px)} 45%{transform:translateY(3px)} 65%{transform:translateY(-5px)} 85%{transform:translateY(1px)} }
+      @keyframes logo-rock { 0%,100%{transform:rotate(-7deg)} 20%{transform:rotate(7deg)} 40%{transform:rotate(-5deg)} 60%{transform:rotate(6deg)} 80%{transform:rotate(-3deg)} }
+      @keyframes logo-spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+      @keyframes logo-bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+      @keyframes logo-throb { 0%,100%{transform:scale(1)} 45%{transform:scale(1.18)} 60%{transform:scale(0.96)} 75%{transform:scale(1.08)} }
+      @keyframes logo-wobble { 0%,100%{transform:rotate(0deg) translateY(0)} 30%{transform:rotate(-5deg) translateY(-6px)} 70%{transform:rotate(5deg) translateY(4px)} }
+      @keyframes logo-glint { 0%,100%{filter:brightness(1)} 50%{filter:brightness(1.35)} }
+      .logo-hop-anim{animation:logo-hop 2.6s ease-in-out infinite}
+      .logo-rock-anim{animation:logo-rock 2.9s ease-in-out infinite}
+      .logo-spin-anim{animation:logo-spin-slow 5s linear infinite}
+      .logo-spin-anim .svg-tile{animation:logo-glint 2.5s ease-in-out infinite}
+      .logo-bob-anim{animation:logo-bob 3.2s ease-in-out infinite}
+      .logo-throb-anim{animation:logo-throb 2.2s ease-in-out infinite}
+      .logo-wobble-anim{animation:logo-wobble 3.6s ease-in-out infinite}
+    </style><div class="absolute inset-0 pointer-events-none select-none z-10" aria-hidden="true">
+      <!-- Photoshop -->
+      <div class="absolute" style="left:6px;top:26px;transform:rotate(-7deg)">
+        <span class="block w-10 h-10 rounded-lg bg-white border-2 border-black shadow-[2px_2px_0_0_#000000] p-[1px] logo-hop-anim">
+          <svg viewBox="0 0 48 48" class="w-full h-full block"><rect width="48" height="48" rx="10" fill="#001933"/><text x="24" y="32" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="19" fill="#f5f5f5" letter-spacing="1">Ps</text></svg>
+        </span>
+      </div>
+      <!-- Illustrator -->
+      <div class="absolute" style="right:14px;top:18%;transform:rotate(8deg)">
+        <span class="block w-10 h-10 rounded-lg bg-white border-2 border-black shadow-[2px_2px_0_0_#000000] p-[1px] logo-rock-anim">
+          <svg viewBox="0 0 48 48" class="w-full h-full block"><rect width="48" height="48" rx="10" fill="#ff9a00"/><text x="24" y="32" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="19" fill="#f5f5f5" letter-spacing="1">Ai</text></svg>
+        </span>
+      </div>
+      <!-- CorelDRAW -->
+      <div class="absolute" style="left:16px;bottom:12%;transform:rotate(6deg)">
+        <span class="block w-10 h-10 rounded-lg bg-white border-2 border-black shadow-[2px_2px_0_0_#000000] p-[1px] logo-spin-anim">
+          <svg viewBox="0 0 48 48" class="w-full h-full block svg-tile"><defs><linearGradient id="corelG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6FCB3F"/><stop offset="1" stop-color="#2E8B2D"/></linearGradient></defs><rect width="48" height="48" rx="11" fill="#ffffff"/><path d="M12 31c2-8 8-13 15-16 5-2 10-3 14-7" stroke="url(#corelG)" stroke-width="4" fill="none" stroke-linecap="round"/><text x="24" y="39" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="10" fill="url(#corelG)" letter-spacing="-0.5">CorelDRAW</text></svg>
+        </span>
+      </div>
+      <!-- Premiere Pro -->
+      <div class="absolute" style="right:30px;bottom:14px;transform:rotate(-5deg)">
+        <span class="block w-10 h-10 rounded-lg bg-white border-2 border-black shadow-[2px_2px_0_0_#000000] p-[1px] logo-wobble-anim">
+          <svg viewBox="0 0 48 48" class="w-full h-full block"><rect width="48" height="48" rx="10" fill="#00005b"/><text x="24" y="32" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="19" fill="#f5f5f5" letter-spacing="1">Pr</text></svg>
+        </span>
+      </div>
+      <!-- CapCut -->
+      <div class="absolute" style="left:62%;top:10px;transform:rotate(4deg)">
+        <span class="block w-10 h-10 rounded-lg bg-white border-2 border-black shadow-[2px_2px_0_0_#000000] p-[1px] logo-throb-anim">
+          <svg viewBox="0 0 48 48" class="w-full h-full block"><rect width="48" height="48" rx="11" fill="#0a0a0a"/><path d="M13 10 L36 38" stroke="#ffffff" stroke-width="7.5" stroke-linecap="round"/><path d="M36 10 L13 38" stroke="#ffffff" stroke-width="7.5" stroke-linecap="round"/></svg>
+        </span>
+      </div>
+    </div></div>
+<!-- Window Bottom Status Bar -->
+<div class="p-space-sm bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-ping arcade-blink"></span>
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface">STATUS: PORTRAIT READY</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase font-semibold text-on-surface-variant">1:1 @ HIRES</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: BIO & CONTACT BLOCK (SPLIT SECTION) -->
+<section class="w-full px-gutter-sm sm:px-gutter py-space-lg" id="bio-specs">
+<div class="max-w-7xl mx-auto">
+<!-- Section Title Label -->
+<div class="flex items-center gap-space-sm mb-space-md">
+<span class="w-6 h-6 rounded-md bg-primary border-[2px] border-black shadow-[2px_2px_0px_#000000] flex items-center justify-center text-on-primary font-bold text-xs">01</span>
+<h2 class="font-headline-md text-headline-md uppercase text-on-surface">BIO, SPECS &amp; COMMISSION DESK</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- LEFT SIDE: HOT PINK CONTAINER (#FF3B7B mapped to primary-container) -->
+<div class="lg:col-span-6 bg-secondary-container text-on-secondary-container border-[3px] border-black rounded-[14px] shadow-[6px_6px_0px_#000000] p-space-md sm:p-space-lg flex flex-col justify-between relative overflow-hidden">
+<!-- STITCH_SHADER_START:ANIMATION_21 class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-70" -->
+<div class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-70" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_21" style="display:block;width:100%;height:100%" width="599" height="976"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_21');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+// Pseudo pixelation & 8-bit / 16-bit arcade fire shader
+float hash(vec2 p) {
+    p = fract(p * vec2(123.34, 456.21));
+    p += dot(p, p + 45.32);
+    return fract(p.x * p.y);
+}
+
+float noise(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    float a = hash(i);
+    float b = hash(i + vec2(1.0, 0.0));
+    float c = hash(i + vec2(0.0, 1.0));
+    float d = hash(i + vec2(1.0, 1.0));
+    return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+}
+
+float fbm(vec2 p) {
+    float v = 0.0;
+    v += 0.5 * noise(p); p *= 2.02;
+    v += 0.25 * noise(p); p *= 2.03;
+    v += 0.125 * noise(p);
+    return v;
+}
+
+void main() {
+    // Coordinate normalized (0.0 to 1.0)
+    vec2 uv = v_texCoord;
+    
+    // Pixelate UV grid for crisp arcade 8-bit retro look
+    float pixelSize = 48.0; // resolution of pixelation grid
+    vec2 pixelUV = floor(uv * vec2(pixelSize * (u_resolution.x / max(u_resolution.y, 1.0)), pixelSize)) / vec2(pixelSize * (u_resolution.x / max(u_resolution.y, 1.0)), pixelSize);
+    
+    // Invert Y so fire burns upwards from bottom (uv.y = 0 is bottom in standard texCoord or v_texCoord)
+    float y = 1.0 - uv.y; // 1.0 at bottom, 0.0 at top
+    
+    // Fire upward movement
+    vec2 fireCoord = pixelUV * vec2(3.0, 2.5);
+    fireCoord.y += u_time * 1.8;
+    
+    // Turbulence / distortion
+    float n1 = fbm(fireCoord);
+    float n2 = fbm(fireCoord * 1.5 + vec2(0.0, u_time * 1.2));
+    
+    // Shape the flame: intense at bottom, tapering towards top with jagged pixel shapes
+    float flame = (1.0 - uv.y) * 1.6; 
+    flame += (n1 * 0.7 + n2 * 0.3) - 0.4;
+    flame = clamp(flame, 0.0, 1.0);
+    
+    // Stepped pixel color banding (Arcade palette: deep red, fiery orange, vibrant gold yellow, white spark core)
+    vec4 col = vec4(0.0);
+    
+    // Background tint (warm translucent yellow/amber to integrate cleanly with container)
+    vec4 bg = vec4(1.0, 0.87, 0.35, 0.0); // #FFDE59 base with zero alpha
+    
+    if (flame > 0.82) {
+        // Bright hot yellow-white core
+        col = vec4(1.0, 0.98, 0.65, 0.42);
+    } else if (flame > 0.62) {
+        // Vivid neon arcade yellow
+        col = vec4(1.0, 0.87, 0.10, 0.35);
+    } else if (flame > 0.42) {
+        // Bright fiery orange
+        col = vec4(1.0, 0.42, 0.08, 0.28);
+    } else if (flame > 0.24) {
+        // Arcade hot pink / magenta-red flame tip (matches Y2K #FF3B7B brand!)
+        col = vec4(1.0, 0.12, 0.38, 0.18);
+    } else {
+        col = vec4(0.0);
+    }
+    
+    // Subtle pixel spark embers floating up
+    vec2 sparkUV = floor(uv * vec2(64.0, 64.0)) / vec2(64.0, 64.0);
+    float spark = hash(sparkUV + floor(u_time * 8.0));
+    if (spark > 0.96 && uv.y < 0.75) {
+        col = vec4(1.0, 0.95, 0.3, 0.45);
+    }
+
+    gl_FragColor = col;
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_21 -->
+<div class="flex flex-col gap-space-md relative z-10">
+<!-- Header Status -->
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-1 bg-surface-container-lowest text-on-surface font-label-md text-label-md uppercase rounded-full border-[2px] border-black shadow-[2px_2px_0px_#000000]">
+                OUTSOURCING &amp; COMMISSIONS
+              </span>
+<div class="flex items-center gap-1.5 px-space-sm py-1 bg-surface-container-lowest border-[2px] border-black rounded-full shadow-[2px_2px_0px_#000000]">
+<span class="w-3 h-3 rounded-full bg-tertiary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface">STATUS: OPEN FOR WORK</span>
+</div>
+</div>
+<!-- Technical Specification Box -->
+<div class="bg-surface-container-lowest text-on-surface border-[3px] border-black rounded-[10px] p-space-md shadow-[3px_3px_0px_#000000]">
+<div class="flex items-center justify-between border-b-[2px] border-black pb-2 mb-3">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface inline-block" style="animation-duration: 1.4s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: bell-bounce-jiggle; animation-timeline: auto; animation-range: normal;"><style>@keyframes bell-bounce-jiggle { 0%, 100% { transform: translateY(0) rotate(0deg); } 15% { transform: translateY(-4px) rotate(-4deg); } 30% { transform: translateY(0) rotate(4deg); } 45% { transform: translateY(-3px) rotate(-3deg); } 60% { transform: translateY(0) rotate(2deg); } 75% { transform: translateY(-1px) rotate(-1deg); } }</style>Firman pratam putra s</span>
+<span class="font-label-sm text-label-sm bg-primary text-on-primary px-2 py-0.5 rounded font-bold border border-black">ABOUT</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm text-on-surface">
+<div class="bg-surface-container p-2 rounded-[6px] border border-black">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">School</span>
+<span class="font-headline-sm text-headline-sm text-sm sm:text-base">SMKN 10 SURABAYA</span>
+</div>
+<div class="bg-surface-container p-2 rounded-[6px] border border-black">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">BORN</span>
+<span class="font-headline-sm text-headline-sm text-sm sm:text-base">JUNE 10th 2008</span>
+</div>
+<div class="bg-surface-container p-2 rounded-[6px] border border-black">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">CONCENTRATION</span>
+<span class="font-headline-sm text-headline-sm text-sm sm:text-base">DESAIN KOMUNIKASI VISUAL</span>
+</div>
+<div class="bg-surface-container p-2 rounded-[6px] border border-black">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">PERIOD</span>
+<span class="font-headline-sm text-headline-sm text-sm sm:text-base">2024 - 2026</span>
+</div>
+</div>
+<!-- Software Tool Badges -->
+<div class="mt-space-sm pt-2 border-t-[2px] border-black flex items-center gap-2 flex-wrap">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface mr-1">hTOOLCHAIN:</span>
+<span class="px-2 py-0.5 bg-inverse-surface text-tertiary-fixed font-label-sm text-label-sm font-bold rounded border border-black">PS</span>
+<span class="px-2 py-0.5 bg-inverse-surface text-secondary-fixed font-label-sm text-label-sm font-bold rounded border border-black">AI</span>
+<span class="px-2 py-0.5 bg-inverse-surface text-on-primary-fixed-variant font-label-sm text-label-sm font-bold rounded border border-black">PR</span>
+</div>
+</div>
+<!-- Interactive Simulated Video Reel Player Frame -->
+<div class="bg-surface-container-lowest text-on-surface border-[3px] border-black rounded-[12px] p-space-md sm:p-space-lg shadow-[4px_4px_0px_#000000] flex flex-col justify-between gap-space-md">
+<!-- Header Badge & Status -->
+<div class="flex flex-wrap items-center justify-between gap-2 border-b-[2px] border-black pb-space-sm">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 bg-primary text-on-primary font-label-sm text-label-sm uppercase rounded-full border border-black font-bold tracking-wider">
+        ABOUT ME
+      </span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant font-semibold tracking-wide">
+        DKV STUDENT &amp; CREATIVE DESIGNER
+      </span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-mono text-[11px]">
+<span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-container opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary-container border border-black animate-pulse"></span></span>
+<span class="">SMKN 10 SBY</span>
+</div>
+</div>
+<!-- Bio Introduction & Statement -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex flex-col">
+<div class="relative inline-block select-none my-1 p-1 rounded-[8px]"><style>@keyframes electricRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes electricGlowPulse { 0%, 100% { filter: drop-shadow(0 0 5px #00f2fe) drop-shadow(0 0 10px #ffe16e); } 50% { filter: drop-shadow(0 0 12px #00f2fe) drop-shadow(0 0 20px #df1e65); } } @keyframes electricCornerArc { 0%, 100% { opacity: 0.3; transform: scale(0.95); } 25% { opacity: 1; transform: scale(1.1) rotate(4deg); } 60% { opacity: 0.5; transform: scale(1) rotate(-3deg); } 80% { opacity: 0.95; transform: scale(1.15) rotate(2deg); } } @keyframes sparkZing { 0%, 100% { opacity: 0; transform: translate(0, 0) scale(0.5); } 50% { opacity: 1; transform: translate(var(--tx, 4px), var(--ty, -6px)) scale(1.2); } } @media (prefers-reduced-motion: reduce) { .electric-anim-beam, .electric-pulse-layer, .spark-bolt { animation: none !important; } }</style><div class="absolute -inset-[3px] rounded-[10px] overflow-hidden pointer-events-none z-0"><div class="electric-anim-beam absolute -inset-[150%]" style="background: conic-gradient(from 0deg, transparent 0deg, transparent 40deg, #00f2fe 75deg, #ffffff 85deg, #ffe16e 105deg, transparent 135deg, transparent 220deg, #df1e65 255deg, #ffffff 265deg, #00f2fe 285deg, transparent 315deg); animation: electricRotate 3s linear infinite; filter: blur(1.5px);"></div></div><div class="absolute -inset-[2px] rounded-[9px] bg-surface-container-lowest pointer-events-none z-0 border-[2px] border-black"></div><div class="absolute -inset-[2px] rounded-[9px] pointer-events-none z-0 border border-[#00f2fe]/60 electric-pulse-layer" style="animation: electricGlowPulse 2s ease-in-out infinite;"></div><div class="spark-bolt absolute -top-3.5 -left-3 pointer-events-none z-20 select-none" style="--tx: -3px; --ty: -3px; animation: electricCornerArc 0.8s steps(2) infinite;"><svg class="w-5 h-6 drop-shadow-[1px_1px_0px_#000000]" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 0h6v6h-4v2h4v2h-4v2h4v8l-12-10h6V6H4V4h4V0z" fill="#00f2fe"></path><path d="M9 2h4v4h-4v2h4v2h-4v2h3l-8 7 1-7h5V6H6V4h3V2z" fill="#ffffff"></path></svg></div><div class="spark-bolt absolute -top-3.5 -right-2 pointer-events-none z-20 select-none" style="--tx: 3px; --ty: -2px; animation: electricCornerArc 0.7s steps(3) infinite 0.2s;"><svg class="w-5 h-6 drop-shadow-[1px_1px_0px_#000000]" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 0h6v6h-4v2h4v2h-4v2h4v8l-12-10h6V6H4V4h4V0z" fill="#ffe16e"></path><path d="M9 2h4v4h-4v2h4v2h-4v2h3l-8 7 1-7h5V6H6V4h3V2z" fill="#ffffff"></path></svg></div><div class="spark-bolt absolute -bottom-3 left-6 pointer-events-none z-20 select-none" style="--tx: -2px; --ty: 3px; animation: electricCornerArc 0.9s steps(2) infinite 0.1s;"><svg class="w-4 h-5 drop-shadow-[1px_1px_0px_#000000] rotate-12" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 0h6v6h-4v2h4v2h-4v2h4v8l-12-10h6V6H4V4h4V0z" fill="#00f2fe"></path></svg></div><div class="spark-bolt absolute -bottom-3 right-8 pointer-events-none z-20 select-none text-[#ffe16e] font-mono text-[14px] font-black drop-shadow-[1px_1px_0px_#000000]" style="animation-duration: 0.65s; animation-timing-function: steps(2); animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: electricCornerArc; animation-timeline: auto; animation-range: normal;">⚡</div><h3 class="relative z-10 px-1 py-0.5 font-headline-md text-headline-md uppercase tracking-tight text-on-surface font-black leading-tight transition-all" style="-webkit-text-stroke: 1px rgb(0, 0, 0); text-shadow: rgba(0, 242, 254, 0.4) 0px 0px 3px, rgb(0, 0, 0) 1px 1px 0px;">FIRMAN PRATAMA PUTRA S.</h3></div>
+<p class="font-label-md text-label-md uppercase text-primary font-bold tracking-wide mt-1">
+        Visual Communication Design (DKV) Student
+      </p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+      Passionate about transforming creative concepts into impactful visual communication. Dedicated to exploring contemporary graphic languages, refined typographic systems, bold brand identities, and storytelling that connects people through purpose-driven aesthetics.
+    </p>
+</div>
+<!-- Core Competencies & Areas of Interest -->
+<div class="flex flex-col gap-2 pt-1">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">interests</span>
+      AREAS OF INTEREST &amp; FOCUS
+    </span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+<div class="bg-surface-container p-2.5 rounded-[8px] border border-black shadow-[1px_1px_0px_#000000] flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-secondary-container border border-black flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[15px] text-on-secondary-fixed">palette</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md uppercase font-bold text-on-surface leading-none">GRAPHIC DESIGN</span>
+<span class="text-[11px] text-on-surface-variant">Layout, Hierarchy &amp; Vectors</span>
+</div>
+</div>
+<div class="bg-surface-container p-2.5 rounded-[8px] border border-black shadow-[1px_1px_0px_#000000] flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary-container border border-black flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[15px] text-on-primary-container">branding_watermark</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md uppercase font-bold text-on-surface leading-none">BRAND IDENTITY</span>
+<span class="text-[11px] text-on-surface-variant">Logos &amp; Visual Systems</span>
+</div>
+</div>
+<div class="bg-surface-container p-2.5 rounded-[8px] border border-black shadow-[1px_1px_0px_#000000] flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-tertiary-fixed border border-black flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[15px] text-on-tertiary-fixed">auto_stories</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md uppercase font-bold text-on-surface leading-none">POSTER &amp; EDITORIAL</span>
+<span class="text-[11px] text-on-surface-variant">Print &amp; Digital Publications</span>
+</div>
+</div>
+<div class="bg-surface-container p-2.5 rounded-[8px] border border-black shadow-[1px_1px_0px_#000000] flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-surface-variant border border-black flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[15px] text-on-surface">art_track</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md uppercase font-bold text-on-surface leading-none">VISUAL CONTENT</span>
+<span class="text-[11px] text-on-surface-variant">Social Media &amp; Art Direction</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Philosophy Statement Quote Box -->
+<div class="bg-surface-container-low border-[2px] border-black rounded-[8px] p-space-sm shadow-[2px_2px_0px_#000000] flex items-start gap-2.5 mt-1">
+<span class="material-symbols-outlined text-primary text-[22px] shrink-0 mt-0.5">format_quote</span>
+<div class="flex flex-col gap-0.5">
+<p class="font-body-sm text-body-sm text-on-surface font-medium italic leading-snug">
+        "Focused on clarity, emotional resonance, and purposeful aesthetics in every layer of visual communication."
+      </p>
+<span class="font-label-sm text-[11px] uppercase font-bold text-on-surface-variant tracking-wider">
+        — DESIGN PHILOSOPHY &amp; ETHOS
+      </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action -->
+<div class="pt-space-md relative z-10">
+</div>
+</div><div class="lg:col-span-6 border-[3px] border-black rounded-[14px] shadow-[6px_6px_0px_#000000] p-space-md sm:p-space-lg flex flex-col justify-between text-white overflow-visible" id="photo-vault" style="background-color: #0b4d32;"><div class="flex flex-col gap-space-sm"><div class="flex items-center justify-between"><span class="px-space-sm py-1 font-label-md text-label-md uppercase rounded-full border-[2px] border-black shadow-[2px_2px_0px_#000000] inline-block" style="animation-duration: 1s; animation-timing-function: steps(1, start); animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: vault-blink-invert; animation-timeline: auto; animation-range: normal;">[PHOTO &amp; ARTWORK VAULT]</span><span class="font-label-sm text-label-sm uppercase px-2 py-0.5 bg-secondary-container text-on-secondary-fixed border-[2px] border-black rounded-md shadow-[2px_2px_0px_#000000] font-bold">2 CATEGORIES // 3x2 GRID</span></div><div class="flex flex-col gap-2.5 bg-surface-container-lowest border-[2px] border-black rounded-[12px] p-2.5 sm:p-space-sm shadow-[3px_3px_0px_#000000]"><div class="flex flex-col gap-1.5"><div class="flex items-center justify-between px-0.5"><span class="font-label-sm text-[11px] uppercase font-bold text-on-surface flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary-container border border-black"></span>01. Manual art</span><span class="font-mono text-[9px] text-on-surface-variant uppercase font-semibold">6 ITEMS (3x2)</span></div><div class="grid grid-cols-3 gap-2"><div class="aspect-square border-[2px] border-black rounded-[6px] overflow-hidden relative group cursor-pointer shadow-[2px_2px_0px_#000000] bg-black"><a href="https://lh3.googleusercontent.com/aida-public/AB6AXuD3NHOWplKe7-5kLX6zxsRQbvkaKIJ6imojZbWts2y2FFr8yjjyTqzTcOyaDdOFdAGZcGKjs8z8niiBKo4qkqzt43cxJ1j_sIFenZkgCsLv8jVUJyysjdwWBfTqu5dQMiY66gu8-1EVujuh3FCCmWeK154-hB8jnr_BUtV_LQGdEzFqtkWmmNTCMB_R2FZbrTF8tBhx50xMg8vckfjmnSwpxOnshFIEGPrvBPq3lSf4ow5Ld1tARZD41gHJdrJJ9R0On9F7X_1YAPmM-jg" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative" title="Click to view full image"><img alt="Sticker Art 01" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGrzdmRhR78FSjpKhEOoDwlAIqcxQLRMR31A8dMwnjmbVVjx3JymZc7l_fVGGE45n_eBnkPcIHnPHyUZ-xXDDcd1MQQbRBeR3GLJZjUjoLGsZnOd80z1YErEFA5wLOS9lbaLccLj5Hj0Q7jFa7WE9HlglaiUse7g1vA7tMkv7EQoLNBRwRRg7rv5WTtMJSsTZtfeAprnHx5Kf-obJ7cvY4wwTDSR4KNBIk39w2f8REGvcx_z3Dlx7b3Gqx0GbrOz7-KFmp_7kVEE5BPdI" style="object-position: 18% 28%; transform: rotate(0deg);"><span class="absolute top-1 left-1 bg-secondary-container text-on-secondary-fixed text-[10px] font-bold font-mono px-1 py-0.2 rounded border border-black shadow-[1px_1px_0px_#000000] leading-tight z-10">#01</span><span class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] font-bold uppercase px-1 rounded truncate max-w-[90%] z-10">nirmanas</span><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px] drop-shadow-[1px_1px_0px_#000000]">zoom_in</span></div></a></div><div class="aspect-square border-[2px] border-black rounded-[6px] overflow-hidden relative group cursor-pointer shadow-[2px_2px_0px_#000000] bg-black"><a href="https://lh3.googleusercontent.com/aida-public/AB6AXuCm7LmW7VCD42piIBUgRDLAJ9uWhYGUo-4xtvs7EFor7UGfd3FNKipafbe8jeK_wqPm3VtrxPZlluNdZuAzheXNzxgwF_xvxnJhFJ-Ows02u7L4-8G8VWhS8c-Rb06i9RVXIRa5urZ_Oe4optruigbrK6-TKIoF0G7LqpGF3thR10a_QNeB_j0TwUXb0OSX6odz6NMxuiBnllPsqzRvpgJ4ReC5-Xq3E2HhUa7xWJYIeNTO3oVnfDdxsfaokkze5zBKAdvpgIskwAo3UKg" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative" title="Click to view full image"><img alt="Sticker Art 02" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm7LmW7VCD42piIBUgRDLAJ9uWhYGUo-4xtvs7EFor7UGfd3FNKipafbe8jeK_wqPm3VtrxPZlluNdZuAzheXNzxgwF_xvxnJhFJ-Ows02u7L4-8G8VWhS8c-Rb06i9RVXIRa5urZ_Oe4optruigbrK6-TKIoF0G7LqpGF3thR10a_QNeB_j0TwUXb0OSX6odz6NMxuiBnllPsqzRvpgJ4ReC5-Xq3E2HhUa7xWJYIeNTO3oVnfDdxsfaokkze5zBKAdvpgIskwAo3UKg" style="object-position: 50% 45%;"><span class="absolute top-1 left-1 bg-primary text-on-primary text-[10px] font-bold font-mono px-1 py-0.2 rounded border border-black shadow-[1px_1px_0px_#000000] leading-tight z-10">#02</span><span class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] font-bold uppercase px-1 rounded truncate max-w-[90%] z-10">logo sketch</span><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px] drop-shadow-[1px_1px_0px_#000000]">zoom_in</span></div></a></div><div class="aspect-square border-[2px] border-black rounded-[6px] overflow-hidden relative group cursor-pointer shadow-[2px_2px_0px_#000000] bg-black"><a href="https://lh3.googleusercontent.com/aida-public/AB6AXuD_WYTw_4u32fECKJYW_kZSYxkzdIbS5AUn3wDSGagI5bC7r9sfkDodwiNEVVfkmKkdbcKFAJ82SccVFVO1Z0NOGPmCUSKAFkF8cAYnryHx-5NgIYX5DTitWn-Akzz8YFFRM_pcDSjN1xu1Yps1CLbygz593NrrtEQlYLsu48XBGiS3HYzjteY1xxDjCmqilMv9BcJsnYq4qV7m4qLLYtVnx6QnO7LCdJJyDtUey7R06lZuf0SaYnPSX2aHe6anPQEw7ixU4-p35pORIuw" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative" title="Click to view full image"><img alt="Sticker Art 03" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_WYTw_4u32fECKJYW_kZSYxkzdIbS5AUn3wDSGagI5bC7r9sfkDodwiNEVVfkmKkdbcKFAJ82SccVFVO1Z0NOGPmCUSKAFkF8cAYnryHx-5NgIYX5DTitWn-Akzz8YFFRM_pcDSjN1xu1Yps1CLbygz593NrrtEQlYLsu48XBGiS3HYzjteY1xxDjCmqilMv9BcJsnYq4qV7m4qLLYtVnx6QnO7LCdJJyDtUey7R06lZuf0SaYnPSX2aHe6anPQEw7ixU4-p35pORIuw" style="object-position: 82% 28%;"><span class="absolute top-1 left-1 bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold font-mono px-1 py-0.2 rounded border border-black shadow-[1px_1px_0px_#000000] leading-tight z-10">#03</span><span class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] font-bold uppercase px-1 rounded truncate max-w-[90%] z-10">just painting</span><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px] drop-shadow-[1px_1px_0px_#000000]">zoom_in</span></div></a></div><div class="aspect-square border-[2px] border-black rounded-[6px] overflow-hidden relative group cursor-pointer shadow-[2px_2px_0px_#000000] bg-black"><a href="https://lh3.googleusercontent.com/aida-public/AB6AXuBruuxU3LAtUqaA19ZHaku1HQJwx8CJvClSH1uFYInzYi2TAkeJlzeNGa2XKx2Wtl_1vadTTL-wxNCWsCGwKQb6weHCHT3cirLvdytBOi5HZARQ4v2W2OvvcWvtvtywsKkS7V93gg86Cnfdj4L0DplZ-4EXKZMy_Y1yixoMs9yt6lerFJJQ1JPng70X1vqjPJHIgH9FJfoIRaWXWJZNzT_HdwwRL4jM5adw7iPAtnpE6jJymWPO4b0qoNtjA9nt02BdRG_uBav9_H3TjO0" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative" title="Click to view full image"><img alt="Sticker Art 04" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBruuxU3LAtUqaA19ZHaku1HQJwx8CJvClSH1uFYInzYi2TAkeJlzeNGa2XKx2Wtl_1vadTTL-wxNCWsCGwKQb6weHCHT3cirLvdytBOi5HZARQ4v2W2OvvcWvtvtywsKkS7V93gg86Cnfdj4L0DplZ-4EXKZMy_Y1yixoMs9yt6lerFJJQ1JPng70X1vqjPJHIgH9FJfoIRaWXWJZNzT_HdwwRL4jM5adw7iPAtnpE6jJymWPO4b0qoNtjA9nt02BdRG_uBav9_H3TjO0" style="object-position: 22% 78%;"><span class="absolute top-1 left-1 bg-secondary-container text-on-secondary-fixed text-[10px] font-bold font-mono px-1 py-0.2 rounded border border-black shadow-[1px_1px_0px_#000000] leading-tight z-10">#04</span><span class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] font-bold uppercase px-1 rounded truncate max-w-[90%] z-10">char illustration</span><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px] drop-shadow-[1px_1px_0px_#000000]">zoom_in</span></div></a></div><div class="aspect-square border-[2px] border-black rounded-[6px] overflow-hidden relative group cursor-pointer shadow-[2px_2px_0px_#000000] bg-black"><a href="https://lh3.googleusercontent.com/aida-public/AB6AXuBRbIC-JYhi_kf3Qi0ptTZf_OmmO423DHHrzmE4gf5XGYgOejKiaTFLwF-nkGMj9h1M4YF8RnYufjcSCB78LF8M8BFtqVK_6mFEzBHnExtRYJj6ohWxtYBoXdkbKjweVy5bkblMDoaMTXYyEcK50GUWvOZkJUAgsbDixOJn6hdhJYL2xycNkB4Yc5XXLbLiMGrNPH-NE2DgWH7dn6IsBUz8RHCOIVTLeRDKhdrOiQtxhqtz8BRvFrVxR331GXn1kHrJ9G5sdkqPU0oSaOI" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative" title="Click to view full image"><img alt="Sticker Art 05" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy_7PRiRc1JgbRQMAHjQRcYhzLfXrFxqtpVhtHfPnzFIkobQvUdaBpZWNF2qyIPbm4beQzEGGcyAaIjbzdB95FZhnrJBwStqgK6j4wi6a21L9T3saDKrZSVpuV1ob12dF1K1ckWztj96FUs1kNTyhifmRew-SsDLRTrr4YBjusoEaBc6h4Oyh1QxvZrbt2sTHIrv8WjlrvTzVzkHTmLxmh9Yb8eqxg96SsULAn4mEeppI0_sPNbw15f7AvUOsSVLm30W0o3xUjHc5fcwI" style="object-position: 50% 82%;"><span class="absolute top-1 left-1 bg-primary text-on-primary text-[10px] font-bold font-mono px-1 py-0.2 rounded border border-black shadow-[1px_1px_0px_#000000] leading-tight z-10">#05</span><span class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] font-bold uppercase px-1 rounded truncate max-w-[90%] z-10">ARCADE</span><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px] drop-shadow-[1px_1px_0px_#000000]">zoom_in</span></div></a></div><div class="aspect-square border-[2px] border-black rounded-[6px] overflow-hidden relative group cursor-pointer shadow-[2px_2px_0px_#000000] bg-black"><a href="https://lh3.googleusercontent.com/aida-public/AB6AXuBp-biniGq6AC13hZakQ--5hBYPxFQYKJLd6_PylnA60uzES00OSr0b0NW_VGEXt7UBNsBHhOr2EBhKu24_LggQsCr1sNuSz8c4tetWhVQX3kw-9DPXSRbm3fraEesk0cRCoyAbk7osxrR23xUGD9D5nYjd4bI1w20PmGW8EpbBnAsG7HRk5g_YsBszB0YV8oiZ-_0Y6vmvwJgrrKCUOEhzX--1EfoWUSefyzSsNd9_Nv3kTBiFtRv4OwhXobkuAHp-AOMzSc4kSWg36HY" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative" title="Click to view full image"><img alt="Sticker Art 06" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp-biniGq6AC13hZakQ--5hBYPxFQYKJLd6_PylnA60uzES00OSr0b0NW_VGEXt7UBNsBHhOr2EBhKu24_LggQsCr1sNuSz8c4tetWhVQX3kw-9DPXSRbm3fraEesk0cRCoyAbk7osxrR23xUGD9D5nYjd4bI1w20PmGW8EpbBnAsG7HRk5g_YsBszB0YV8oiZ-_0Y6vmvwJgrrKCUOEhzX--1EfoWUSefyzSsNd9_Nv3kTBiFtRv4OwhXobkuAHp-AOMzSc4kSWg36HY" style="object-position: 84% 82%;"><span class="absolute top-1 left-1 bg-tertiary-fixed-dim text-on-tertiary-fixed text-[10px] font-bold font-mono px-1 py-0.2 rounded border border-black shadow-[1px_1px_0px_#000000] leading-tight z-10">#06</span><span class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] font-bold uppercase px-1 rounded truncate max-w-[90%] z-10">char illustration</span><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px] drop-shadow-[1px_1px_0px_#000000]">zoom_in</span></div></a></div></div></div><div class="flex flex-col gap-1.5 pt-1"><div class="flex items-center justify-between px-0.5"><span class="font-label-sm text-[11px] uppercase font-bold text-on-surface flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim border border-black"></span>02. Digital art<br></span><span class="font-mono text-[9px] text-on-surface-variant uppercase font-semibold">6 ITEMS (3x2)</span></div><div class="grid grid-cols-3 gap-2"><div class="aspect-square border-[2px] border-black rounded-[6px] overflow-hidden relative group cursor-pointer shadow-[2px_2px_0px_#000000] bg-black"><a href="https://lh3.googleusercontent.com/aida-public/AB6AXuAzKFJO8fBPbXH8AxOrSHuCZqt8t16PJVmutYZdEO3MP-s_80Ue5StV3FHnfDKClqilw95POtEWgLnI1y7XJ9zszs8Jxtq9hLHWdYUKpSfY0SNiatTe68WMjBCNjohhreG4xWn4D86YVPSlBVlM2iX7rVV61s6f8SddWZ2vRid5ZtlLrFfsPuoaPx5eeb60a4jt_NHfjJJVxJS-Fpiznce6tecMZLOt59TChv1-ng-ZsEbpGDnsXEXhCY7GNJzv0mz1i2ZfcLUaAhFurw0" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative" title="Click to view full image"><img alt="Character Art 01" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzKFJO8fBPbXH8AxOrSHuCZqt8t16PJVmutYZdEO3MP-s_80Ue5StV3FHnfDKClqilw95POtEWgLnI1y7XJ9zszs8Jxtq9hLHWdYUKpSfY0SNiatTe68WMjBCNjohhreG4xWn4D86YVPSlBVlM2iX7rVV61s6f8SddWZ2vRid5ZtlLrFfsPuoaPx5eeb60a4jt_NHfjJJVxJS-Fpiznce6tecMZLOt59TChv1-ng-ZsEbpGDnsXEXhCY7GNJzv0mz1i2ZfcLUaAhFurw0" style="object-position: 55% 40%;"><span class="absolute top-1 left-1 bg-primary text-on-primary text-[10px] font-bold font-mono px-1 py-0.2 rounded border border-black shadow-[1px_1px_0px_#000000] leading-tight z-10">#01</span><span class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] font-bold uppercase px-1 rounded truncate max-w-[90%] z-10">independence day logos</span><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px] drop-shadow-[1px_1px_0px_#000000]">zoom_in</span></div></a></div><div class="aspect-square border-[2px] border-black rounded-[6px] overflow-hidden relative group cursor-pointer shadow-[2px_2px_0px_#000000] bg-black"><a href="https://lh3.googleusercontent.com/aida-public/AB6AXuB-_zXmX7dYushYusbWdzV1GlGXHtdlAeLpc2BSGGUNzCsJc3ULt_ODZpVKHUSphwmHIMDjL7guCsaGkfsNivCX7rMQlOYUMd-TLC2FZ0XBJiG1QAjsfAwu3URlm6l3J-CFqXk9rEeGnPp5vsud4uOWOjUulqvkGAwV_x9v7kl9iK9EZDRqbCdptXTbYOsFVNizmw2SJZljrPHJs9aMsXi8RryYiLL4DPRWrT2dG9Ks8dfFn60yb1JyWGRm0J7WVHDdwYt_QmaYjeBZN_8" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative" title="Click to view full image"><img alt="Character Art 02" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-_zXmX7dYushYusbWdzV1GlGXHtdlAeLpc2BSGGUNzCsJc3ULt_ODZpVKHUSphwmHIMDjL7guCsaGkfsNivCX7rMQlOYUMd-TLC2FZ0XBJiG1QAjsfAwu3URlm6l3J-CFqXk9rEeGnPp5vsud4uOWOjUulqvkGAwV_x9v7kl9iK9EZDRqbCdptXTbYOsFVNizmw2SJZljrPHJs9aMsXi8RryYiLL4DPRWrT2dG9Ks8dfFn60yb1JyWGRm0J7WVHDdwYt_QmaYjeBZN_8" style="object-position: 25% 45%;"><span class="absolute top-1 left-1 bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold font-mono px-1 py-0.2 rounded border border-black shadow-[1px_1px_0px_#000000] leading-tight z-10">#02</span><span class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] font-bold uppercase px-1 rounded truncate max-w-[90%] z-10">nirmanas</span><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px] drop-shadow-[1px_1px_0px_#000000]">zoom_in</span></div></a></div><div class="aspect-square border-[2px] border-black rounded-[6px] overflow-hidden relative group cursor-pointer shadow-[2px_2px_0px_#000000] bg-black"><a href="https://lh3.googleusercontent.com/aida-public/AB6AXuDXrWzUReCQvs49PWFPPl_1Lwhd4Uhhjpn8pF-ht66MV7JsKkCaG1819wU76kAEKFLPPG299ClLzqIXSJO7eVjWZKcWJusnGwB008QNsazEpDebJ-Kv3V7c_nohct29rQskrSbPrXtzt8Qp9zJaCnFbGSRHgDCu-paZbvDUehnedEpSGWp9oSdkt2vBnc2rN9WeJLADr85JSt2DTG1oc-HxfyLFJTSPCXd5SCOoBhVvFDAJdOKScAdu2noSXml8r-qer2MWVVGU_TcBja4" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative" title="Click to view full image"><img alt="Character Art 03" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXrWzUReCQvs49PWFPPl_1Lwhd4Uhhjpn8pF-ht66MV7JsKkCaG1819wU76kAEKFLPPG299ClLzqIXSJO7eVjWZKcWJusnGwB008QNsazEpDebJ-Kv3V7c_nohct29rQskrSbPrXtzt8Qp9zJaCnFbGSRHgDCu-paZbvDUehnedEpSGWp9oSdkt2vBnc2rN9WeJLADr85JSt2DTG1oc-HxfyLFJTSPCXd5SCOoBhVvFDAJdOKScAdu2noSXml8r-qer2MWVVGU_TcBja4" style="object-position: 80% 60%;"><span class="absolute top-1 left-1 bg-secondary-container text-on-secondary-fixed text-[10px] font-bold font-mono px-1 py-0.2 rounded border border-black shadow-[1px_1px_0px_#000000] leading-tight z-10">#03</span><span class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] font-bold uppercase px-1 rounded truncate max-w-[90%] z-10">quote design</span><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px] drop-shadow-[1px_1px_0px_#000000]">zoom_in</span></div></a></div><div class="aspect-square border-[2px] border-black rounded-[6px] overflow-hidden relative group cursor-pointer shadow-[2px_2px_0px_#000000] bg-black"><a href="https://lh3.googleusercontent.com/aida-public/AB6AXuCGHxAYPyfrgNpG8wwMyZEx3ebZvHwsW5nAK2NL7kJhiJJyZwq50t2thqNJJzEtnqXomyRvOSTnEy72mqGY3f5lQ5mLOuyq4jqNpzX8msTK2y9NwfK7qKHWcup_RgHHxO_tH0kR4mGbpTdVSKENi5rBJQylkcVcAnsQUB0kdpdbdtDkM-Mjvy3hyoWR5qkh3erszavQzqpmFeE1h8BrCFn4ZbDR6zlJO2J2sPty75EnU46_p6R_AoHp6xgTlWTlTuhFG6qu627TS1G3rZ8" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative" title="Click to view full image"><img alt="Character Art 04" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGHxAYPyfrgNpG8wwMyZEx3ebZvHwsW5nAK2NL7kJhiJJyZwq50t2thqNJJzEtnqXomyRvOSTnEy72mqGY3f5lQ5mLOuyq4jqNpzX8msTK2y9NwfK7qKHWcup_RgHHxO_tH0kR4mGbpTdVSKENi5rBJQylkcVcAnsQUB0kdpdbdtDkM-Mjvy3hyoWR5qkh3erszavQzqpmFeE1h8BrCFn4ZbDR6zlJO2J2sPty75EnU46_p6R_AoHp6xgTlWTlTuhFG6qu627TS1G3rZ8" style="object-position: 45% 75%;"><span class="absolute top-1 left-1 bg-secondary-container text-on-secondary-fixed text-[10px] font-bold font-mono px-1 py-0.2 rounded border border-black shadow-[1px_1px_0px_#000000] leading-tight z-10">#04</span><span class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] font-bold uppercase px-1 rounded truncate max-w-[90%] z-10">mascot</span><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px] drop-shadow-[1px_1px_0px_#000000]">zoom_in</span></div></a></div><div class="aspect-square border-[2px] border-black rounded-[6px] overflow-hidden relative group cursor-pointer shadow-[2px_2px_0px_#000000] bg-black"><a href="https://lh3.googleusercontent.com/aida-public/AB6AXuDYk9U1mssWY-zU8kzo1F8LcU1zpKLqMoY697tW6R95xEbdUJYdHBKJOEnlaSqlXJznv566Z_2lFo9MyNwjE4ObJ2Ajeqm-VB_hrXp0JvX-3iHJeDgm_SVR1o1TLmp_z3mtBUvgtn3uaQ4Pf7WYYRmkmil-xrWHYIWepIjWcVBt_kmvFYVtJNjHCWw27s8VCRfx_VxGh42iQlyKiNGi4k9ocRLPUYwdxlEK9vel4SaU4YJQB8wKE8dMcO4k_u869N_9GpK-ZeLhnMz8Y4k" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative" title="Click to view full image"><img alt="Character Art 05" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYk9U1mssWY-zU8kzo1F8LcU1zpKLqMoY697tW6R95xEbdUJYdHBKJOEnlaSqlXJznv566Z_2lFo9MyNwjE4ObJ2Ajeqm-VB_hrXp0JvX-3iHJeDgm_SVR1o1TLmp_z3mtBUvgtn3uaQ4Pf7WYYRmkmil-xrWHYIWepIjWcVBt_kmvFYVtJNjHCWw27s8VCRfx_VxGh42iQlyKiNGi4k9ocRLPUYwdxlEK9vel4SaU4YJQB8wKE8dMcO4k_u869N_9GpK-ZeLhnMz8Y4k" style="object-position: 33% 50%;"><span class="absolute top-1 left-1 bg-primary text-on-primary text-[10px] font-bold font-mono px-1 py-0.2 rounded border border-black shadow-[1px_1px_0px_#000000] leading-tight z-10">#05</span><span class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] font-bold uppercase px-1 rounded truncate max-w-[90%] z-10">brand logos</span><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px] drop-shadow-[1px_1px_0px_#000000]">zoom_in</span></div></a></div><div class="aspect-square border-[2px] border-black rounded-[6px] overflow-hidden relative group cursor-pointer shadow-[2px_2px_0px_#000000] bg-black"><a href="https://lh3.googleusercontent.com/aida-public/AB6AXuAVIJ3TDaLCymYCx6O9jTCnHo1anvEN16jOfeeIMD21tQ0wK9RhV-J3iVqGeKNYoJUilKEP_pWPSFpkqYM-Rc23U3f9fSOfw6dqK_wg6tdsHZQ5np1tGwInolypOzVo7t7AoLRYSmGBt3yf8BXFiPuidTBiT4ZpJbdaVm_XMj_p5WjNe3igemkEsQOe4VlJ7rGyyz8_Tq_hb7xKaBhDdhvS0B_lWYvsddF_1BA2Xl_emGdDiEtrYy87AYOGdbxRMVWB_RwYx0w0OwgIkGs" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative" title="Click to view full image"><img alt="Character Art 06" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVIJ3TDaLCymYCx6O9jTCnHo1anvEN16jOfeeIMD21tQ0wK9RhV-J3iVqGeKNYoJUilKEP_pWPSFpkqYM-Rc23U3f9fSOfw6dqK_wg6tdsHZQ5np1tGwInolypOzVo7t7AoLRYSmGBt3yf8BXFiPuidTBiT4ZpJbdaVm_XMj_p5WjNe3igemkEsQOe4VlJ7rGyyz8_Tq_hb7xKaBhDdhvS0B_lWYvsddF_1BA2Xl_emGdDiEtrYy87AYOGdbxRMVWB_RwYx0w0OwgIkGs" style="object-position: 88% 50%;"><span class="absolute top-1 left-1 bg-tertiary-fixed-dim text-on-tertiary-fixed text-[10px] font-bold font-mono px-1 py-0.2 rounded border border-black shadow-[1px_1px_0px_#000000] leading-tight z-10">#06</span><span class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] font-bold uppercase px-1 rounded truncate max-w-[90%] z-10">brand logos</span><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><span class="material-symbols-outlined text-white text-[20px] drop-shadow-[1px_1px_0px_#000000]">zoom_in</span></div></a></div></div></div></div></div><div class="pt-space-sm flex items-center justify-between border-t-[2px] border-black mt-space-sm"><span class="font-label-sm text-label-sm uppercase font-bold tracking-wider text-white">12 CURATED VISUALS (2x 3x2 CATEGORIES)</span><a class="px-space-sm py-1 bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm uppercase font-bold border-[2px] border-black rounded shadow-[2px_2px_0px_#000000] hover:bg-surface-container-lowest hover:text-on-surface transition-all flex items-center gap-1" href="#showcase"><span class="">EXPAND ALL</span><span class="material-symbols-outlined text-[15px]">north_east</span></a></div><div class="relative w-full pointer-events-none select-none z-20 overflow-visible"><style>@keyframes vineSwayLeft { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-4.5deg); } } @keyframes vineSwayRight { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(5deg); } } @keyframes leafFlutter { 0%, 100% { transform: scale(1) translateY(0); } 50% { transform: scale(1.15) translateY(-1px); } }</style><div class="absolute -bottom-7 sm:-bottom-8 left-0 right-0 h-10 flex items-start justify-between px-2 sm:px-4 overflow-visible"><div class="flex items-start gap-3 sm:gap-6 origin-top drop-shadow-[2px_2px_0px_#000000]" style="animation: vineSwayLeft 3.6s ease-in-out infinite;"><svg class="w-7 h-10 text-[#00a800]" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><rect x="5" y="0" width="4" height="5" fill="#005000"></rect><rect x="4" y="5" width="4" height="6" fill="#00a800"></rect><rect x="0" y="8" width="4" height="4" fill="#38c838"></rect><rect x="6" y="11" width="4" height="6" fill="#00a800"></rect><rect x="10" y="13" width="4" height="4" fill="#80f080"></rect><rect x="5" y="17" width="3" height="5" fill="#38c838"></rect><rect x="6" y="22" width="2" height="2" fill="#80f080"></rect></svg><svg class="w-5 h-8 text-[#38c838] hidden sm:block" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" style="animation: leafFlutter 2.8s ease-in-out infinite;"><rect x="4" y="0" width="3" height="4" fill="#005000"></rect><rect x="3" y="4" width="3" height="5" fill="#00a800"></rect><rect x="6" y="6" width="4" height="4" fill="#38c838"></rect><rect x="4" y="9" width="3" height="5" fill="#38c838"></rect><rect x="0" y="10" width="4" height="3" fill="#80f080"></rect><rect x="5" y="14" width="2" height="4" fill="#80f080"></rect></svg></div><div class="flex items-start gap-4 sm:gap-8 origin-top drop-shadow-[2px_2px_0px_#000000]" style="animation: vineSwayRight 4.2s ease-in-out infinite 0.4s;"><svg class="w-8 h-11 text-[#00a800]" viewBox="0 0 16 26" fill="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><rect x="6" y="0" width="4" height="6" fill="#005000"></rect><rect x="10" y="4" width="4" height="4" fill="#80f080"></rect><rect x="5" y="6" width="4" height="7" fill="#00a800"></rect><rect x="1" y="9" width="4" height="4" fill="#38c838"></rect><rect x="6" y="13" width="4" height="6" fill="#00a800"></rect><rect x="10" y="15" width="4" height="4" fill="#38c838"></rect><rect x="5" y="19" width="3" height="5" fill="#38c838"></rect><rect x="6" y="24" width="2" height="2" fill="#80f080"></rect></svg><svg class="w-6 h-9 text-[#80f080]" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" style="animation: leafFlutter 3.2s ease-in-out infinite 0.7s;"><rect x="4" y="0" width="4" height="4" fill="#005000"></rect><rect x="3" y="4" width="4" height="6" fill="#00a800"></rect><rect x="0" y="6" width="3" height="4" fill="#38c838"></rect><rect x="4" y="10" width="3" height="5" fill="#38c838"></rect><rect x="7" y="11" width="4" height="4" fill="#80f080"></rect><rect x="5" y="15" width="2" height="5" fill="#80f080"></rect></svg></div><div class="flex items-start gap-3 sm:gap-6 origin-top drop-shadow-[2px_2px_0px_#000000]" style="animation: vineSwayLeft 3.9s ease-in-out infinite 0.8s;"><svg class="w-6 h-10 text-[#38c838]" viewBox="0 0 14 22" fill="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><rect x="5" y="0" width="4" height="5" fill="#005000"></rect><rect x="6" y="5" width="4" height="5" fill="#00a800"></rect><rect x="2" y="7" width="4" height="4" fill="#80f080"></rect><rect x="5" y="10" width="4" height="6" fill="#38c838"></rect><rect x="9" y="12" width="4" height="4" fill="#38c838"></rect><rect x="5" y="16" width="3" height="4" fill="#80f080"></rect><rect x="6" y="20" width="2" height="2" fill="#80f080"></rect></svg><svg class="w-8 h-12 text-[#00a800] hidden sm:block" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><rect x="6" y="0" width="4" height="6" fill="#005000"></rect><rect x="5" y="6" width="4" height="7" fill="#00a800"></rect><rect x="9" y="8" width="5" height="4" fill="#38c838"></rect><rect x="1" y="10" width="4" height="4" fill="#80f080"></rect><rect x="6" y="13" width="4" height="7" fill="#00a800"></rect><rect x="6" y="20" width="3" height="5" fill="#38c838"></rect><rect x="7" y="25" width="2" height="3" fill="#80f080"></rect></svg></div></div></div></div>
+<!-- RIGHT SIDE: VIBRANT YELLOW BLOCK (#FFDE59 mapped to secondary-container) -->
+</div>
+</div>
+</section>
+<!-- SECTION 3: PROJECT SHOWCASE GRID (BENTO STYLE CARDS) -->
+<section class="w-full px-gutter-sm sm:px-gutter py-space-xl" id="showcase">
+<div class="max-w-7xl mx-auto">
+<!-- Section Header -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm border-b-[3px] border-black pb-space-sm mb-space-lg">
+<div>
+<div class="flex items-center gap-2 text-primary font-headline-sm">
+<span class="material-symbols-outlined">kid_star</span>
+<span class="font-label-lg text-label-lg uppercase text-on-surface-variant tracking-wider">PROJECT VAULT // ARCHIVES</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">SELECTED WORKS &amp; ARCHIVES [2024–2026]</h2>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-1 bg-secondary-container text-on-secondary-fixed border-[2px] border-black rounded-full font-label-md text-label-md uppercase font-bold shadow-[2px_2px_0px_#000000]">
+            03 HIGHLIGHT TILES
+          </span>
+</div>
+</div>
+<!-- Bento Grid (3 Themed Cards) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- CARD 1: DARK NAVY THEME (KakaoPay / Coupang Motion Campaign) -->
+<div class="lg:col-span-7 bg-inverse-surface text-inverse-on-surface border-[3px] border-black rounded-[14px] shadow-[6px_6px_0px_#000000] p-space-md sm:p-space-lg flex flex-col justify-between">
+<div>
+<!-- Header Tag -->
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-space-sm py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md uppercase rounded-full border-[2px] border-black shadow-[2px_2px_0px_#000000]">
+                COMMERCIAL MOTION CAMPAIGN
+              </span>
+<span class="font-mono text-sm text-secondary-fixed">PROJECT #01 // 2024</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg uppercase tracking-tight text-surface-bright mb-2">the art are impressive for me !</h3>
+<p class="font-body-md text-body-md text-surface-container-high mb-space-md">
+              High-frequency kinetic typography and product character staging designed for high-engagement mobile in-app popups and digital billboards in Gangnam.
+            </p>
+<!-- Video Preview Screen with Play Button -->
+<div class="w-full mb-space-md grid grid-cols-2 gap-3"><div class="bg-surface-container-lowest text-on-surface border-[2px] border-black rounded-lg overflow-hidden shadow-[3px_3px_0px_#000000] flex flex-col group cursor-pointer"><div class="relative w-full h-32 sm:h-36 bg-black overflow-hidden"><img alt="Shot 01 - Instant Pay Fast &amp; Secure" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO3dr-X6SnCuUH1obSj5Dtc0G-ilmvL1YjErEnCZYCdkXjixlC7nN8Ej-gX0DmdiWWaASM4ILR2C41hZXUj7bZbwTjChO1NXF7S_7_2BOAt2T59NjH_IJUoxCdypoUDHaJtaIdFF8enWQSeMNkPRNPc1lEML1TL8GzCJcnxIr-aIUMSr1wbfzur1TQkhv-vSK5HMQa0XkS63hUcSH7rx2lBc6JMIdU6rWxAPJB3_KVZdSAx6FwDzkh0WtA7XLEpadavhn1_SU9_yjjXCg" style="object-position: 10% 48%;"><span class="absolute top-2 left-2 bg-primary text-on-primary font-mono text-[11px] font-bold px-1.5 py-0.5 rounded border border-black shadow-[1px_1px_0px_#000000]">#01</span><span class="absolute bottom-2 right-2 bg-black/75 text-white font-mono text-[10px] px-1.5 py-0.5 rounded border border-surface-container-highest">00:02</span></div><div class="p-2 flex items-center justify-between bg-surface-container-lowest border-t-[2px] border-black"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-xs uppercase leading-tight font-bold text-on-surface">banner hut 80th</span><span class="font-label-sm text-[10px] text-on-surface-variant uppercase font-semibold">graphic design</span></div></div></div><div class="bg-surface-container-lowest text-on-surface border-[2px] border-black rounded-lg overflow-hidden shadow-[3px_3px_0px_#000000] flex flex-col group cursor-pointer"><div class="relative w-full h-32 sm:h-36 bg-black overflow-hidden"><img alt="Shot 02 - Earn Rewards Coin Burst" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdBEIa-tyx107BEzUpKxLOTZgZGxbT1zmjklCzWKhdSMLfNWso32Voi_qyJSp5VHcs8hBAayIGKGiCQH1jRB2dMCVD3bn0dIypvMlawZq2G6zxuzVKwFeJAdknz3GSQDGkao6Um87usFjeTQOCEMFkPr2nNFY0g4lJv0hFVpXtJMSvRslIQTaDkvFmgwM3kDFtDsPvyu4DTrRayMHO5mbSrnrkNrCU8KSNt3T2LaY56s5UAEPjCCcU-Hfi0kY9lIaUErd-IjcovQtkCes" style="object-position: 30% 48%;"><span class="absolute top-2 left-2 bg-primary text-on-primary font-mono text-[11px] font-bold px-1.5 py-0.5 rounded border border-black shadow-[1px_1px_0px_#000000]">#02</span><span class="absolute bottom-2 right-2 bg-black/75 text-white font-mono text-[10px] px-1.5 py-0.5 rounded border border-surface-container-highest">00:08</span></div><div class="p-2 flex items-center justify-between bg-surface-container-lowest border-t-[2px] border-black"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-xs uppercase leading-tight font-bold text-on-surface">dot nirmanas skull shape</span><span class="font-label-sm text-[10px] text-on-surface-variant uppercase font-semibold">manual art<br></span></div></div></div><div class="bg-surface-container-lowest text-on-surface border-[2px] border-black rounded-lg overflow-hidden shadow-[3px_3px_0px_#000000] flex flex-col group cursor-pointer"><div class="relative w-full h-32 sm:h-36 bg-black overflow-hidden"><img alt="Shot 03 - Pay Anywhere Card Swipe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv2C2PzIIUTeqoV8sAooPGJKoVk0nunBRklcbM-22IfCC71864QE-GJ9NTOHMUeKKsyfjQULj_sdv7uBvmXcUU7pi4g8pYL_WM2kV_aBC5lEan-UW9hOg0ynbiKDdT3XP2U1jmVTa5Zatdd8VhHmMpaAXtGk3u3VAGIK7RawtiePN5HMeZHtn0owB7o3_mKbIYjQ0g1ckIWpLRkmlu9mdMKzpRaHa5D0z2V1KNnRPNDx6kKU3C_MAMLgSM_XfPp7eb1tmS1QtaVtIJ3d4" style="object-position: 68% 48%;"><span class="absolute top-2 left-2 bg-primary text-on-primary font-mono text-[11px] font-bold px-1.5 py-0.5 rounded border border-black shadow-[1px_1px_0px_#000000]">#03</span><span class="absolute bottom-2 right-2 bg-black/75 text-white font-mono text-[10px] px-1.5 py-0.5 rounded border border-surface-container-highest">00:15</span></div><div class="p-2 flex items-center justify-between bg-surface-container-lowest border-t-[2px] border-black"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-xs uppercase leading-tight font-bold text-on-surface">javanese sign combine with animal shape</span><span class="font-label-sm text-[10px] text-on-surface-variant uppercase font-semibold">manual art</span></div></div></div><div class="bg-surface-container-lowest text-on-surface border-[2px] border-black rounded-lg overflow-hidden shadow-[3px_3px_0px_#000000] flex flex-col group cursor-pointer"><div class="relative w-full h-32 sm:h-36 bg-black overflow-hidden"><img alt="Shot 04 - Outro Mascot Confetti Freedom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5zEIBGDQ8lfpXFbmmAE-DgoBUzGwQbh_-_RSIBHSjSxqkrP4y_TmpogAUg8QwnSVAoWH_NW9o9Lq7gt9G38gDAbsPtW6U4Yrd3U5dStqUghWjXyqVvO-i_wJYaXjU_89YPSPFTPntYDzla7dZKFPrZttnRHr6fCN9XRnZt9fa91_kt6T4ThOmJfkLclYm7A_Vqf6B6XjjC7bpYUlVFbXurqk5qwrWOY_mksAuVa0tTEoCIfERDUNySdCnpU-Oi8hKklQrtbtKXd-rqLk" style="object-position: 88% 48%;"><span class="absolute top-2 left-2 bg-primary text-on-primary font-mono text-[11px] font-bold px-1.5 py-0.5 rounded border border-black shadow-[1px_1px_0px_#000000]">#04</span><span class="absolute bottom-2 right-2 bg-black/75 text-white font-mono text-[10px] px-1.5 py-0.5 rounded border border-surface-container-highest">00:24</span></div><div class="p-2 flex items-center justify-between bg-surface-container-lowest border-t-[2px] border-black"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-xs uppercase leading-tight font-bold text-on-surface">product branding design portofolio</span><span class="font-label-sm text-[10px] text-on-surface-variant uppercase font-semibold">graphic design + manual art (inside)</span></div></div></div></div>
+<!-- Deliverables & Specs List -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-space-md">
+<div class="bg-surface-container-lowest/10 border border-surface-container-highest p-2 rounded">
+<span class="font-label-sm text-label-sm text-secondary-fixed block uppercase">format</span>
+<span class="font-headline-sm text-headline-sm text-sm text-white">DIGITAL &amp; MANUAL</span>
+</div>
+<div class="bg-surface-container-lowest/10 border border-surface-container-highest p-2 rounded">
+<span class="font-label-sm text-label-sm text-secondary-fixed block uppercase">TIMELINE</span>
+<span class="font-headline-sm text-headline-sm text-sm text-white">-</span>
+</div>
+<div class="bg-surface-container-lowest/10 border border-surface-container-highest p-2 rounded col-span-2 sm:col-span-1">
+<span class="font-label-sm text-label-sm text-secondary-fixed block uppercase">TOOLS</span>
+<span class="font-headline-sm text-headline-sm text-sm text-white">PS, AI, CANVA</span>
+</div>
+</div>
+</div>
+<!-- Card Button -->
+<a class="w-full py-3 bg-tertiary-fixed text-on-tertiary-fixed font-label-lg text-label-lg uppercase border-[3px] border-black rounded-[8px] shadow-[4px_4px_0px_#000000] hover:bg-secondary-container hover:text-on-secondary-fixed hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#000000] active:translate-x-1 active:translate-y-1 active:shadow-[0px_0px_0px_#000000] transition-all flex items-center justify-center gap-2" href="#">
+<span class="">WATCH FULL SHOWREEL CASE STUDY</span>
+<span class="material-symbols-outlined text-[20px]">north_east</span>
+</a>
+</div>
+<!-- CARD 2: HOT PINK THEME (Y2K Pop-Art Illustration Series) -->
+<div class="lg:col-span-5 bg-primary-container text-on-primary-container border-[3px] border-black rounded-[14px] shadow-[6px_6px_0px_#000000] p-space-md sm:p-space-lg flex flex-col justify-between"><div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-space-sm py-1 font-label-md text-label-md uppercase rounded-full border-[2px] border-black shadow-[2px_2px_0px_#000000] inline-block" style="animation-duration: 1s; animation-timing-function: steps(1, start); animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: vault-blink-invert; animation-timeline: auto; animation-range: normal;">[PHOTO &amp; ARTWORK VAULT]</span>
+<span class="font-mono text-sm text-surface-bright">SERIES #02</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase tracking-tight text-on-primary-container mb-2">
+  Y2K POP-ART CHARACTER SERIES
+</h3>
+<p class="font-body-md text-body-md text-on-primary-container font-medium mb-space-md">
+  A playful homage to arcade dance cabinets, glitter stickers, and cyber-rabbits drenched in high-saturation neons.
+</p>
+<!-- 2-Row Stacked Landscape Visual Display Frames -->
+<div class="grid grid-cols-2 gap-3 mb-space-md"><div class="bg-surface-container-lowest text-on-surface border-[2px] border-black rounded-[8px] overflow-hidden shadow-[3px_3px_0px_#000000] flex flex-col group cursor-pointer"><div class="relative w-full aspect-[9/16] bg-black overflow-hidden"><img alt="Kinet!x Rush - Hyper Drive Opener" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUFl27LcJ1MZq3X9x-jy7QHMF55EN-hZMpho1ifIQw6V6ahm7r4wNYeWIFXXXdKYAhCaA6yLGxBTW0AD7Qo-spxGsP5qY1y1rg1Wp95GaCqzTBZVfaB5G3k-5ec2vhbp9-r0fhwav8q0m3uunMeGVb4-3v7ohqRtSJ61-j3iWw5BAorLc5PnMn5LE1LrarMgxqEMcLTunv5gpj8pZ_FC6lTnp7f9nFmZStiVOQZ9fffWU3a-5cG0A4vlFaK82kESVoJ7gsAFUb3ErMXpc"><span class="absolute top-2 left-2 bg-secondary-container text-on-secondary-fixed font-mono text-[10px] font-bold px-1.5 py-0.5 rounded border border-black shadow-[1px_1px_0px_#000000]">#01</span><span class="absolute bottom-2 right-2 bg-black/75 text-white font-mono text-[9px] px-1.5 py-0.5 rounded border border-surface-container-highest">9:16 VERTICAL</span></div><div class="p-2 flex flex-col justify-between bg-surface-container-lowest border-t-[2px] border-black gap-1"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-xs uppercase leading-tight font-bold text-on-surface">quote graphic design</span><span class="material-symbols-outlined text-primary text-[16px] group-hover:translate-x-0.5 transition-transform">north_east</span></div><span class="font-label-sm text-[10px] text-on-surface-variant uppercase font-semibold">graphic design</span></div></div><div class="bg-surface-container-lowest text-on-surface border-[2px] border-black rounded-[8px] overflow-hidden shadow-[3px_3px_0px_#000000] flex flex-col group cursor-pointer"><div class="relative w-full aspect-[9/16] bg-black overflow-hidden"><img alt="Y2K Retro Sticker Collection" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-200 block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-A49gFZ8XNuQSUrUkZhyS58ggH7YZAlcg0OKtkp8Y9tO9VMVwdD-N4fcufL1MWG8vOUI2bDPdz4f-HiKVUyWvOlebkQUE5uaZ7dvu_1NMyfifaXDRJ3vvcwUb4X9EjkjcYmrw47jFpG-AUqipMb1qWmApVMLq9K63oz6vve_L8sm0b5KFb-njfQQltpBY_nGTFP3a8ZAeMRWKcamXIM9oWxquRQKMPKY2uLforS50hslB6LzDdPlNCGPdICxMN3sP--y_CSCLbez3LWM"><span class="absolute top-2 left-2 bg-primary text-on-primary font-mono text-[10px] font-bold px-1.5 py-0.5 rounded border border-black shadow-[1px_1px_0px_#000000]">#02</span><span class="absolute bottom-2 right-2 bg-black/75 text-white font-mono text-[9px] px-1.5 py-0.5 rounded border border-surface-container-highest">9:16 VERTICAL</span></div><div class="p-2 flex flex-col justify-between bg-surface-container-lowest border-t-[2px] border-black gap-1"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-xs uppercase leading-tight font-bold text-on-surface">terry bogard char illustration</span><span class="material-symbols-outlined text-primary text-[16px] group-hover:translate-x-0.5 transition-transform">north_east</span></div><span class="font-label-sm text-[10px] text-on-surface-variant uppercase font-semibold">digital art</span></div></div></div><div class="relative w-full -mt-2 mb-space-md flex flex-col items-center select-none overflow-visible"><style>@keyframes thrusterExhaustMain { 0%, 100% { transform: scaleY(1) scaleX(1); filter: drop-shadow(0 0 6px #ffe16e) drop-shadow(0 4px 12px #df1e65); } 25% { transform: scaleY(1.3) scaleX(0.92); filter: drop-shadow(0 0 10px #ffde59) drop-shadow(0 6px 16px #ff5722); } 50% { transform: scaleY(0.88) scaleX(1.06); filter: drop-shadow(0 0 4px #ffe16e) drop-shadow(0 2px 8px #df1e65); } 75% { transform: scaleY(1.38) scaleX(0.88); filter: drop-shadow(0 0 12px #ffffff) drop-shadow(0 6px 20px #ff5722); } } @keyframes thrusterExhaustSub { 0%, 100% { transform: scaleY(1.05) scaleX(0.95); } 30% { transform: scaleY(0.85) scaleX(1.1); } 60% { transform: scaleY(1.35) scaleX(0.85); } 85% { transform: scaleY(0.95) scaleX(1.05); } } @keyframes rocketSmokeEmber1 { 0% { transform: translate(0, 0) scale(0.6); opacity: 1; } 60% { opacity: 0.9; } 100% { transform: translate(-8px, 24px) scale(1.4); opacity: 0; } } @keyframes rocketSmokeEmber2 { 0% { transform: translate(0, 0) scale(0.5); opacity: 1; } 50% { opacity: 0.85; } 100% { transform: translate(9px, 28px) scale(1.3); opacity: 0; } } @keyframes rocketSmokeEmber3 { 0% { transform: translate(0, 0) scale(0.7); opacity: 1; } 100% { transform: translate(-3px, 32px) scale(1.5); opacity: 0; } } @keyframes turboBadgePulse { 0%, 100% { transform: scale(1); box-shadow: 2px 2px 0px #000000, 0 0 8px #ffe16e; } 50% { transform: scale(1.03); box-shadow: 2px 2px 0px #000000, 0 0 16px #df1e65; } }</style><div class="w-full grid grid-cols-2 gap-3 relative z-10"><div class="flex flex-col items-center relative"><div class="flex items-center gap-2 -mt-1"><div class="w-5 h-2.5 bg-inverse-surface border-[2px] border-black rounded-b-[4px] shadow-[1px_1px_0px_#000000] flex justify-center items-end pb-0.5"><div class="w-2.5 h-1 bg-[#fc9838] rounded-full"></div></div><div class="w-5 h-2.5 bg-inverse-surface border-[2px] border-black rounded-b-[4px] shadow-[1px_1px_0px_#000000] flex justify-center items-end pb-0.5"><div class="w-2.5 h-1 bg-[#fc9838] rounded-full"></div></div></div><div class="flex items-start gap-2 relative -mt-0.5"><div class="relative flex flex-col items-center"><svg class="w-6 h-9 drop-shadow-[2px_2px_0px_#000000] origin-top" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: thrusterExhaustMain 0.18s steps(3) infinite alternate;"><path d="M8 0h4v4H8zM6 4h8v6H6zM4 10h12v8H4zM2 18h16v6H2zM6 24h8v4H6z" fill="#df1e65"></path><path d="M8 3h4v4H8zM6 7h8v6H6zM4 13h12v7H4zM6 20h8v4H6z" fill="#fc9838"></path><path d="M8 6h4v4H8zM6 10h8v6H6zM8 16h4v5H8z" fill="#ffe16e"></path><path d="M9 8h2v6H9zM9 14h2v3H9z" fill="#ffffff"></path></svg><div class="absolute top-5 -left-2 w-1.5 h-1.5 bg-[#ffe16e] border border-black rounded-[1px] shadow-[1px_1px_0px_#000]" style="animation: rocketSmokeEmber1 0.7s ease-out infinite;"></div><div class="absolute top-7 right-0 w-1.5 h-1.5 bg-[#ffde59] border border-black rounded-[1px] shadow-[1px_1px_0px_#000]" style="animation: rocketSmokeEmber2 0.8s ease-out infinite 0.15s;"></div></div><div class="relative flex flex-col items-center"><svg class="w-6 h-9 drop-shadow-[2px_2px_0px_#000000] origin-top" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: thrusterExhaustSub 0.22s steps(3) infinite alternate 0.08s;"><path d="M8 0h4v4H8zM6 4h8v6H6zM4 10h12v8H4zM2 18h16v6H2zM6 24h8v4H6z" fill="#df1e65"></path><path d="M8 3h4v4H8zM6 7h8v6H6zM4 13h12v7H4zM6 20h8v4H6z" fill="#fc9838"></path><path d="M8 6h4v4H8zM6 10h8v6H6zM8 16h4v5H8z" fill="#ffde59"></path><path d="M9 8h2v6H9zM9 14h2v3H9z" fill="#ffffff"></path></svg><div class="absolute top-6 left-1 w-2 h-2 bg-[#df1e65] border border-black rounded-[1px] shadow-[1px_1px_0px_#000]" style="animation: rocketSmokeEmber3 0.65s ease-out infinite 0.2s;"></div></div></div></div><div class="flex flex-col items-center relative"><div class="flex items-center gap-2 -mt-1"><div class="w-5 h-2.5 bg-inverse-surface border-[2px] border-black rounded-b-[4px] shadow-[1px_1px_0px_#000000] flex justify-center items-end pb-0.5"><div class="w-2.5 h-1 bg-[#fc9838] rounded-full"></div></div><div class="w-5 h-2.5 bg-inverse-surface border-[2px] border-black rounded-b-[4px] shadow-[1px_1px_0px_#000000] flex justify-center items-end pb-0.5"><div class="w-2.5 h-1 bg-[#fc9838] rounded-full"></div></div></div><div class="flex items-start gap-2 relative -mt-0.5"><div class="relative flex flex-col items-center"><svg class="w-6 h-9 drop-shadow-[2px_2px_0px_#000000] origin-top" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: thrusterExhaustSub 0.2s steps(3) infinite alternate 0.05s;"><path d="M8 0h4v4H8zM6 4h8v6H6zM4 10h12v8H4zM2 18h16v6H2zM6 24h8v4H6z" fill="#df1e65"></path><path d="M8 3h4v4H8zM6 7h8v6H6zM4 13h12v7H4zM6 20h8v4H6z" fill="#fc9838"></path><path d="M8 6h4v4H8zM6 10h8v6H6zM8 16h4v5H8z" fill="#ffe16e"></path><path d="M9 8h2v6H9zM9 14h2v3H9z" fill="#ffffff"></path></svg><div class="absolute top-5 -right-1 w-1.5 h-1.5 bg-[#ffe16e] border border-black rounded-[1px] shadow-[1px_1px_0px_#000]" style="animation: rocketSmokeEmber2 0.75s ease-out infinite 0.1s;"></div></div><div class="relative flex flex-col items-center"><svg class="w-6 h-9 drop-shadow-[2px_2px_0px_#000000] origin-top" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: thrusterExhaustMain 0.17s steps(3) infinite alternate 0.12s;"><path d="M8 0h4v4H8zM6 4h8v6H6zM4 10h12v8H4zM2 18h16v6H2zM6 24h8v4H6z" fill="#df1e65"></path><path d="M8 3h4v4H8zM6 7h8v6H6zM4 13h12v7H4zM6 20h8v4H6z" fill="#fc9838"></path><path d="M8 6h4v4H8zM6 10h8v6H6zM8 16h4v5H8z" fill="#ffde59"></path><path d="M9 8h2v6H9zM9 14h2v3H9z" fill="#ffffff"></path></svg><div class="absolute top-7 -left-1.5 w-2 h-2 bg-[#ff5722] border border-black rounded-[1px] shadow-[1px_1px_0px_#000]" style="animation: rocketSmokeEmber1 0.7s ease-out infinite 0.25s;"></div></div></div></div></div><div class="mt-1.5 z-20 flex items-center gap-1.5 px-2.5 py-0.5 bg-secondary-container text-on-secondary-fixed border-[2px] border-black rounded-full font-mono text-[9px] font-black uppercase shadow-[2px_2px_0px_#000000] tracking-wider" style="animation: turboBadgePulse 1.4s ease-in-out infinite;"><span class="material-symbols-outlined text-[14px] text-primary">rocket_launch</span><span class="">TURBO THRUSTERS ENGAGED 🚀</span><span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span></div></div>
+</div>
+<!-- Card Button -->
+<a class="w-full mt-space-sm py-3 bg-secondary-container text-on-secondary-fixed font-label-lg text-label-lg uppercase border-[3px] border-black rounded-[8px] shadow-[4px_4px_0px_#000000] hover:bg-surface-container-lowest hover:text-on-surface hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#000000] active:translate-x-1 active:translate-y-1 active:shadow-[0px_0px_0px_#000000] transition-all flex items-center justify-center gap-2" href="#">
+<span class="">VIEW ART GALLERY</span>
+<span class="material-symbols-outlined text-[20px]">north_east</span>
+</a></div>
+<!-- CARD 3: CONTENT DIRECTORY & ARCHIVE INDEX (FULL WIDTH BENTO FOOTPRINT) -->
+<div class="lg:col-span-12 border-[3px] border-black rounded-[14px] shadow-[6px_6px_0px_#000000] p-space-md sm:p-space-lg relative overflow-hidden group bg-gradient-to-b from-[#ff8c42] via-[#ff5722] to-[#ffb347]" id="contact-section"><div class="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none"><style class="">
+@keyframes sfSunPulse { 0%, 100% { transform: scale(1) rotate(0deg); } 50% { transform: scale(1.08) rotate(180deg); } }
+@keyframes sfDayCloud1 { 0% { transform: translateX(-180px); } 100% { transform: translateX(1380px); } }
+@keyframes sfDayCloud2 { 0% { transform: translateX(1380px); } 100% { transform: translateX(-180px); } }
+@keyframes sfTreeSway { 0%, 100% { transform: skewX(0deg); } 50% { transform: skewX(2.5deg); } }
+@keyframes sfRyuIdleBounce { 0%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px); } 60% { transform: translateY(-1px); } 80% { transform: translateY(-3px); } }
+@keyframes sfHeadbandFlow { 0%, 100% { transform: rotate(0deg) skewX(0deg); } 50% { transform: rotate(-10deg) skewX(-12deg); } }
+@keyframes sfHadoukenCharge {
+  0%, 40% { transform: scale(0.6) rotate(0deg); opacity: 0; filter: drop-shadow(0 0 4px #b84418); }
+  45% { transform: scale(1.1) rotate(45deg); opacity: 0.95; filter: drop-shadow(0 0 12px #ffe16e); }
+  55% { transform: scale(1.3) rotate(90deg); opacity: 1; filter: drop-shadow(0 0 18px #df1e65); }
+  70% { transform: scale(1.5) translate(40px, -2px) rotate(180deg); opacity: 0.9; filter: drop-shadow(0 0 20px #ffde59); }
+  85% { transform: scale(1.2) translate(180px, -4px) rotate(360deg); opacity: 0.5; filter: drop-shadow(0 0 10px #ffe16e); }
+  90%, 100% { transform: scale(0.8) translate(260px, -6px); opacity: 0; }
+}
+@keyframes sfHadoukenSpark { 0%, 100% { transform: translate(0,0) scale(0.8); opacity: 0; } 50% { transform: translate(-12px, -8px) scale(1.3); opacity: 0.95; } }
+@keyframes sfBannerFlutter { 0%, 100% { transform: skewY(0deg); } 50% { transform: skewY(2deg); } }
+@keyframes sfSpectatorCheer1 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes sfSpectatorCheer2 { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-7px); } 75% { transform: translateY(-2px); } }
+@keyframes sfBirdsFly { 0% { transform: translate(-100px, 15px); } 100% { transform: translate(1400px, -30px); } }
+</style>
+<!-- Sunset Evening Sky Gradient (Oranye Sore Hari) -->
+<div class="absolute inset-0 bg-gradient-to-b from-[#b84418] via-[#df1e65] to-[#ffe16e] opacity-95"></div>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-secondary-container/40 via-transparent to-transparent pointer-events-none"></div>
+
+<!-- 8-Bit Arcade Glowing Sunset Sun -->
+<div class="absolute top-3 right-10 sm:right-24 z-5 flex items-center justify-center pointer-events-none drop-shadow-[3px_3px_0px_#000000]">
+  <div class="relative w-16 h-16 flex items-center justify-center">
+    <div class="absolute w-14 h-14 bg-secondary-container border-[2px] border-black rounded-full animate-ping opacity-30"></div>
+    <div class="absolute w-14 h-14 bg-secondary-fixed border-[3px] border-black rounded-full shadow-[0_0_12px_#ffe16e] flex items-center justify-center" style="animation: sfSunPulse 8s ease-in-out infinite;">
+      <div class="w-8 h-8 bg-primary-container border-[2px] border-black rounded-full flex items-center justify-center">
+        <div class="w-3 h-3 bg-secondary-container rounded-full"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Sunset Pixel Clouds -->
+<div class="absolute top-5 left-0 z-5 opacity-90 pointer-events-none" style="animation: 36s linear 0s infinite normal none running sfDayCloud1;">
+  <svg width="110" height="36" viewBox="0 0 110 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[2px_2px_0px_#000000]">
+    <rect x="20" y="6" width="70" height="30" fill="#ffd9df" stroke="#000000" stroke-width="2"></rect>
+    <rect x="35" y="0" width="40" height="36" fill="#ffd9df" stroke="#000000" stroke-width="2"></rect>
+    <rect x="0" y="16" width="110" height="20" fill="#ffd9df" stroke="#000000" stroke-width="2"></rect>
+  </svg>
+</div>
+<div class="absolute top-10 right-0 z-5 opacity-80 pointer-events-none hidden sm:block" style="animation: 48s linear 8s infinite normal none running sfDayCloud2;">
+  <svg width="90" height="30" viewBox="0 0 90 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[2px_2px_0px_#000000]">
+    <rect x="18" y="5" width="54" height="25" fill="#ffd9df" stroke="#000000" stroke-width="2"></rect>
+    <rect x="30" y="0" width="30" height="30" fill="#ffd9df" stroke="#000000" stroke-width="2"></rect>
+    <rect x="0" y="12" width="90" height="18" fill="#ffd9df" stroke="#000000" stroke-width="2"></rect>
+  </svg>
+</div>
+
+<!-- Distant Birds in Evening Flight -->
+<div class="absolute top-14 left-0 z-5 opacity-70 pointer-events-none hidden sm:flex items-center gap-4" style="animation: 22s linear 0s infinite normal none running sfBirdsFly;">
+  <svg width="14" height="8" viewBox="0 0 14 8" fill="none" class="text-black fill-current"><path d="M0 4Q3 0 7 4Q11 0 14 4Q11 2 7 6Q3 2 0 4Z"></path></svg>
+  <svg width="11" height="6" viewBox="0 0 14 8" fill="none" class="text-black fill-current -mt-2"><path d="M0 4Q3 0 7 4Q11 0 14 4Q11 2 7 6Q3 2 0 4Z"></path></svg>
+</div>
+
+<!-- Cheerful Warm Evening Arcade Street Buildings -->
+<div class="absolute bottom-16 left-0 right-0 h-48 flex items-end justify-between opacity-90 pointer-events-none drop-shadow-[2px_2px_0px_#000000]">
+  <svg viewBox="0 0 1200 180" class="w-full h-full preserve-3d" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Building 1: Sunset Orange Arcade Hub -->
+    <rect x="0" y="45" width="100" height="135" fill="#ffde59" stroke="#000000" stroke-width="3"></rect>
+    <rect x="0" y="45" width="100" height="20" fill="#b84418" stroke="#000000" stroke-width="3"></rect>
+    <rect x="15" y="78" width="28" height="28" fill="#ffe16e" stroke="#000000" stroke-width="2"></rect>
+    <rect x="55" y="78" width="28" height="28" fill="#ffd9df" stroke="#000000" stroke-width="2"></rect>
+    <rect x="15" y="120" width="28" height="35" fill="#df1e65" stroke="#000000" stroke-width="2"></rect>
+    <rect x="55" y="120" width="28" height="35" fill="#ffe16e" stroke="#000000" stroke-width="2"></rect>
+    
+    <!-- Building 2: Deep Crimson / Coral Tower -->
+    <rect x="110" y="15" width="120" height="165" fill="#ffb1c0" stroke="#000000" stroke-width="3"></rect>
+    <polygon points="110,15 170,-8 230,15" fill="#b7004e" stroke="#000000" stroke-width="3"></polygon>
+    <rect x="125" y="28" width="22" height="20" fill="#ffe16e" stroke="#000000" stroke-width="2"></rect>
+    <rect x="160" y="28" width="22" height="20" fill="#ffde59" stroke="#000000" stroke-width="2"></rect>
+    <rect x="195" y="28" width="22" height="20" fill="#ffe16e" stroke="#000000" stroke-width="2"></rect>
+    <rect x="125" y="60" width="22" height="22" fill="#ffd9df" stroke="#000000" stroke-width="2"></rect>
+    <rect x="160" y="60" width="22" height="22" fill="#ffffff" stroke="#000000" stroke-width="2"></rect>
+    <rect x="195" y="60" width="22" height="22" fill="#ffd9df" stroke="#000000" stroke-width="2"></rect>
+    <rect x="125" y="94" width="22" height="22" fill="#ffffff" stroke="#000000" stroke-width="2"></rect>
+    <rect x="160" y="94" width="22" height="22" fill="#ffde59" stroke="#000000" stroke-width="2"></rect>
+    <rect x="195" y="94" width="22" height="22" fill="#ffffff" stroke="#000000" stroke-width="2"></rect>
+    
+    <!-- Building 3: Warm Dojo Pavillion -->
+    <rect x="245" y="38" width="95" height="142" fill="#ffe16e" stroke="#000000" stroke-width="3"></rect>
+    <polygon points="240,38 292,18 345,38" fill="#b84418" stroke="#000000" stroke-width="3"></polygon>
+    <rect x="260" y="55" width="65" height="16" fill="#ffffff" stroke="#000000" stroke-width="2"></rect>
+    <rect x="265" y="85" width="25" height="35" fill="#ffde59" stroke="#000000" stroke-width="2"></rect>
+    <rect x="300" y="85" width="25" height="35" fill="#ffffff" stroke="#000000" stroke-width="2"></rect>
+
+    <!-- Building 4: Sunshine Yellow & Red Plaza -->
+    <rect x="350" y="58" width="130" height="122" fill="#ffe16e" stroke="#000000" stroke-width="3"></rect>
+    <rect x="365" y="75" width="24" height="22" fill="#ffffff" stroke="#000000" stroke-width="2"></rect>
+    <rect x="400" y="75" width="24" height="22" fill="#df1e65" stroke="#000000" stroke-width="2"></rect>
+    <rect x="435" y="75" width="24" height="22" fill="#ffffff" stroke="#000000" stroke-width="2"></rect>
+    <rect x="365" y="110" width="40" height="45" fill="#ffb1c0" stroke="#000000" stroke-width="2"></rect>
+    <rect x="420" y="110" width="40" height="45" fill="#ffffff" stroke="#000000" stroke-width="2"></rect>
+
+    <!-- Building 5: Suzaku Sunset Crimson Centerpiece -->
+    <rect x="495" y="20" width="110" height="160" fill="#df1e65" stroke="#000000" stroke-width="3"></rect>
+    <polygon points="485,20 550,-5 615,20" fill="#b7004e" stroke="#000000" stroke-width="3"></polygon>
+    <rect x="515" y="38" width="24" height="24" fill="#ffe16e" stroke="#000000" stroke-width="2"></rect>
+    <rect x="555" y="38" width="24" height="24" fill="#ffffff" stroke="#000000" stroke-width="2"></rect>
+    <rect x="515" y="75" width="24" height="24" fill="#ffffff" stroke="#000000" stroke-width="2"></rect>
+    <rect x="555" y="75" width="24" height="24" fill="#ffde59" stroke="#000000" stroke-width="2"></rect>
+    
+    <!-- Building 6: Golden Hour Studio -->
+    <rect x="620" y="45" width="120" height="135" fill="#ffe16e" stroke="#000000" stroke-width="3"></rect>
+    <rect x="635" y="60" width="32" height="30" fill="#ffffff" stroke="#000000" stroke-width="2"></rect>
+    <rect x="685" y="60" width="32" height="30" fill="#ffde59" stroke="#000000" stroke-width="2"></rect>
+
+    <!-- Far Right Buildings -->
+    <rect x="755" y="22" width="105" height="158" fill="#ffde59" stroke="#000000" stroke-width="3"></rect>
+    <rect x="875" y="40" width="115" height="140" fill="#ffb1c0" stroke="#000000" stroke-width="3"></rect>
+    <rect x="1000" y="26" width="95" height="154" fill="#ffd9df" stroke="#000000" stroke-width="3"></rect>
+    <rect x="1105" y="50" width="95" height="130" fill="#ffe16e" stroke="#000000" stroke-width="3"></rect>
+  </svg>
+</div>
+
+<!-- Sunset Japanese Arcade Shop Banners -->
+<div class="absolute top-6 left-6 sm:left-14 flex flex-col items-center select-none pointer-events-none z-5" style="animation: 3.4s ease-in-out 0s infinite normal none running sfBannerFlutter;">
+  <div class="px-2.5 py-1 bg-primary text-on-primary border-[2px] border-black rounded-[4px] shadow-[3px_3px_0px_#000000] flex items-center gap-1.5">
+    <span class="w-2 h-2 rounded-full bg-secondary-container animate-ping"></span>
+    <span class="font-mono font-black text-[12px] text-white tracking-widest">風林火山 RYU STAGE</span>
+  </div>
+  <div class="w-0.5 h-6 bg-black"></div>
+</div>
+<div class="absolute top-8 right-8 sm:right-20 flex flex-col items-center select-none pointer-events-none z-5" style="animation: 4s ease-in-out 0.5s infinite normal none running sfBannerFlutter;">
+  <div class="px-2.5 py-1 bg-secondary-container border-[2px] border-black rounded-[4px] shadow-[3px_3px_0px_#000000] flex items-center gap-1.5">
+    <span class="font-mono font-black text-[11px] text-on-secondary-fixed tracking-wider">HADOUKEN 波動拳 🌇</span>
+  </div>
+  <div class="w-0.5 h-5 bg-black"></div>
+</div>
+
+<!-- Stage Flora: Sunset Trees & Bushes -->
+<div class="absolute bottom-20 left-2 sm:left-10 z-5 select-none pointer-events-none drop-shadow-[2px_2px_0px_#000000]" style="animation: 4.2s ease-in-out 0s infinite normal none running sfTreeSway;">
+  <svg width="70" height="95" viewBox="0 0 70 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="30" y="55" width="10" height="40" fill="#705d00" stroke="#000000" stroke-width="2"></rect>
+    <ellipse cx="35" cy="38" rx="32" ry="36" fill="#b84418" stroke="#000000" stroke-width="2.5"></ellipse>
+    <ellipse cx="35" cy="34" rx="25" ry="28" fill="#c84c0c"></ellipse>
+    <circle cx="24" cy="28" r="6" fill="#fc9838"></circle>
+  </svg>
+</div>
+<div class="absolute bottom-20 right-2 sm:right-12 z-5 select-none pointer-events-none drop-shadow-[2px_2px_0px_#000000]" style="animation: 3.8s ease-in-out 0.4s infinite normal none running sfTreeSway;">
+  <svg width="80" height="105" viewBox="0 0 80 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="35" y="60" width="12" height="45" fill="#705d00" stroke="#000000" stroke-width="2"></rect>
+    <ellipse cx="40" cy="42" rx="36" ry="40" fill="#b84418" stroke="#000000" stroke-width="2.5"></ellipse>
+    <ellipse cx="40" cy="38" rx="28" ry="32" fill="#c84c0c"></ellipse>
+    <circle cx="50" cy="30" r="8" fill="#fc9838"></circle>
+  </svg>
+</div>
+
+<!-- Animated Spectators in Sunset Costumes -->
+<div class="absolute bottom-20 left-16 sm:left-28 z-5 flex items-end gap-3 select-none pointer-events-none drop-shadow-[2px_2px_0px_#000000]">
+  <div class="flex flex-col items-center" style="animation: sfSpectatorCheer1 0.9s ease-in-out infinite;">
+    <div class="w-3.5 h-3.5 rounded-full bg-[#ffd9df] border border-black"></div>
+    <div class="w-5 h-7 bg-primary border border-black rounded-t-sm flex items-center justify-center"><div class="w-2 h-2 rounded-full bg-secondary-container"></div></div>
+    <div class="w-4 h-4 bg-tertiary-container border-x border-black"></div>
+  </div>
+  <div class="flex flex-col items-center" style="animation: sfSpectatorCheer2 1.1s ease-in-out infinite 0.2s;">
+    <div class="w-3.5 h-3.5 rounded-full bg-[#ffd9df] border border-black"></div>
+    <div class="w-5 h-8 bg-secondary-container border border-black rounded-t-sm flex items-center justify-center"><div class="w-2 h-2 rounded-full bg-primary"></div></div>
+    <div class="w-4 h-4 bg-[#001e2b] border-x border-black"></div>
+  </div>
+</div>
+<div class="absolute bottom-20 right-16 sm:right-32 z-5 flex items-end gap-3 select-none pointer-events-none drop-shadow-[2px_2px_0px_#000000]">
+  <div class="flex flex-col items-center" style="animation: sfSpectatorCheer2 0.95s ease-in-out infinite 0.1s;">
+    <div class="w-3.5 h-3.5 rounded-full bg-[#ffd9df] border border-black"></div>
+    <div class="w-5 h-8 bg-secondary-fixed border border-black rounded-t-sm"></div>
+    <div class="w-4 h-4 bg-secondary-container border-x border-black"></div>
+  </div>
+  <div class="flex flex-col items-center" style="animation: sfSpectatorCheer1 1.05s ease-in-out infinite 0.3s;">
+    <div class="w-3.5 h-3.5 rounded-full bg-[#ffd9df] border border-black"></div>
+    <div class="w-5 h-7 bg-primary-container border border-black rounded-t-sm"></div>
+    <div class="w-4 h-4 bg-[#151a30] border-x border-black"></div>
+  </div>
+</div>
+
+<!-- Classic 16-Bit Ryu Sprite & Hadouken Beam in Golden Hour -->
+<div class="absolute bottom-20 left-1/4 z-10 select-none pointer-events-none opacity-95 drop-shadow-[3px_3px_0px_#000000]" style="animation: 1.2s ease-in-out 0s infinite normal none running sfRyuIdleBounce;">
+  <div class="relative flex flex-col items-center">
+    <div class="absolute -top-1 -right-3 w-4 h-2 bg-primary rounded-sm border border-black" style="animation: sfHeadbandFlow 1s ease-in-out infinite alternate;"></div>
+    <svg viewBox="0 0 32 48" class="w-10 h-14" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="2" width="12" height="5" fill="#151a30"></rect>
+      <rect x="8" y="5" width="16" height="3" fill="#df1e65"></rect>
+      <rect x="10" y="8" width="12" height="6" fill="#ffd9df"></rect>
+      <rect x="18" y="9" width="3" height="2" fill="#151a30"></rect>
+      <rect x="6" y="14" width="20" height="16" fill="#ffffff" stroke="#000000" stroke-width="0.8"></rect>
+      <rect x="11" y="14" width="10" height="8" fill="#ffd9df"></rect>
+      <rect x="3" y="16" width="4" height="10" fill="#ffffff"></rect>
+      <rect x="2" y="26" width="5" height="5" fill="#ba1a1a" stroke="#000000" stroke-width="0.5"></rect>
+      <rect x="25" y="16" width="4" height="10" fill="#ffffff"></rect>
+      <rect x="25" y="26" width="5" height="5" fill="#ba1a1a" stroke="#000000" stroke-width="0.5"></rect>
+      <rect x="7" y="29" width="18" height="3" fill="#151a30"></rect>
+      <rect x="14" y="32" width="3" height="6" fill="#151a30"></rect>
+      <rect x="7" y="32" width="7" height="12" fill="#ffffff" stroke="#000000" stroke-width="0.5"></rect>
+      <rect x="18" y="32" width="7" height="12" fill="#ffffff" stroke="#000000" stroke-width="0.5"></rect>
+      <rect x="6" y="44" width="8" height="4" fill="#ffd9df"></rect>
+      <rect x="18" y="44" width="8" height="4" fill="#ffd9df"></rect>
+    </svg>
+    <!-- Sunset Hadouken Flame Energy -->
+    <div class="absolute top-5 left-10 pointer-events-none" style="animation: sfHadoukenCharge 3.8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;">
+      <div class="relative w-9 h-9 rounded-full bg-[#ffde59] flex items-center justify-center shadow-[0_0_14px_#ffe16e] border-2 border-white">
+        <div class="w-5 h-5 rounded-full bg-primary-container animate-spin" style="animation-duration: 0.6s;"></div>
+        <div class="absolute -inset-1.5 border-2 border-[#ffb1c0] rounded-full animate-ping opacity-75"></div>
+      </div>
+    </div>
+    <div class="absolute top-6 left-8 w-2 h-2 bg-[#ffe16e] rounded-full border border-white" style="animation: sfHadoukenSpark 1.4s ease-out infinite;"></div>
+    <div class="absolute top-7 left-14 w-2 h-2 bg-secondary-container rounded-full border border-black" style="animation: sfHadoukenSpark 1.6s ease-out infinite 0.4s;"></div>
+    <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-black/40 rounded-full blur-[0.5px]"></div>
+  </div>
+</div>
+
+<!-- Sunset Stone Floor Platform -->
+<div class="absolute bottom-0 left-0 right-0 h-16 border-t-[3px] border-black bg-[#fc9838] z-5 overflow-hidden flex flex-col justify-between p-1.5 shadow-inner">
+  <div class="w-full flex items-center justify-around opacity-90">
+    <div class="w-12 h-2 bg-secondary-container border border-black rounded-sm shadow-[1px_1px_0px_#000000]"></div>
+    <div class="w-12 h-2 bg-white border border-black rounded-sm shadow-[1px_1px_0px_#000000]"></div>
+    <div class="w-12 h-2 bg-primary-container border border-black rounded-sm shadow-[1px_1px_0px_#000000]"></div>
+    <div class="w-12 h-2 bg-white border border-black rounded-sm shadow-[1px_1px_0px_#000000]"></div>
+    <div class="w-12 h-2 bg-secondary-container border border-black rounded-sm shadow-[1px_1px_0px_#000000]"></div>
+    <div class="w-12 h-2 bg-white border border-black rounded-sm shadow-[1px_1px_0px_#000000]"></div>
+  </div>
+  <div class="w-full h-1.5 bg-black/20 border-t border-black/30"></div>
+</div>
+
+<!-- Soft Scanlines -->
+<div class="absolute inset-0 crt-scanlines z-10 opacity-15 pointer-events-none"></div></div><div class="relative w-full h-9 sm:h-10 bg-inverse-surface border-[2px] border-black rounded-[8px] overflow-hidden mb-space-md shadow-[2px_2px_0px_#000000] flex items-center select-none group cursor-pointer z-10"><style>@keyframes pacChompTop{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-38deg);}}@keyframes pacChompBottom{0%,100%{transform:rotate(0deg);}50%{transform:rotate(38deg);}}@keyframes pacMoveAcross{0%{transform:translateX(-140px);}100%{transform:translateX(1350px);}}@keyframes ghostWavySkirt{0%,100%{transform:translateY(0);}50%{transform:translateY(-1.5px);}}@keyframes pelletEatProgress{0%{clip-path:polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);}100%{clip-path:polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);}}.pac-run-squad{position:absolute;top:50%;margin-top:-11px;display:flex;align-items:center;gap:22px;animation:pacMoveAcross 9s linear infinite;will-change:transform;z-index:20;}.group:hover .pac-run-squad{animation-play-state:paused;}.pac-mouth-top{transform-origin:11px 11px;animation:pacChompTop 0.22s ease-in-out infinite alternate;}.pac-mouth-bottom{transform-origin:11px 11px;animation:pacChompBottom 0.22s ease-in-out infinite alternate;}.ghost-skirt-wiggle{animation:ghostWavySkirt 0.25s ease-in-out infinite alternate;}.pellets-mask-runner{animation:pacMoveAcross 9s linear infinite;}</style><div class="absolute inset-0 flex items-center justify-between px-3 pointer-events-none z-30"><span class="font-mono text-[9px] font-bold text-secondary-container tracking-wider flex items-center gap-1.5 opacity-90"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>PAC-TRACK // 1980 SUNSET DUSK</span><div class="flex items-center gap-3 font-mono text-[9px] font-bold tracking-wider opacity-85"><span class="text-secondary-fixed hidden sm:inline-block">HIGH: 3333360</span><span class="text-secondary-fixed bg-black/60 px-1.5 py-0.5 rounded border border-black/40 shadow-[1px_1px_0px_#000]">1UP: <span class="text-primary animate-pulse">04820</span> PTS</span></div></div><div class="absolute inset-0 left-28 right-24 sm:right-36 flex items-center pointer-events-none overflow-hidden z-10"><div class="w-full flex items-center justify-around"><span class="w-1.5 h-1.5 bg-[#ffde59] shadow-[1px_1px_0px_#000] rounded-sm shrink-0"></span><span class="w-1.5 h-1.5 bg-[#ffde59] shadow-[1px_1px_0px_#000] rounded-sm shrink-0"></span><span class="w-1.5 h-1.5 bg-[#ffde59] shadow-[1px_1px_0px_#000] rounded-sm shrink-0"></span><span class="w-2.5 h-2.5 bg-secondary-container shadow-[1px_1px_0px_#000] rounded-full shrink-0 border border-black animate-pulse"></span><span class="w-1.5 h-1.5 bg-[#ffde59] shadow-[1px_1px_0px_#000] rounded-sm shrink-0"></span><span class="w-1.5 h-1.5 bg-[#ffde59] shadow-[1px_1px_0px_#000] rounded-sm shrink-0"></span><span class="w-1.5 h-1.5 bg-[#ffde59] shadow-[1px_1px_0px_#000] rounded-sm shrink-0"></span><span class="w-2.5 h-2.5 bg-primary-container shadow-[1px_1px_0px_#000] rounded-full shrink-0 border border-black animate-pulse"></span><span class="w-1.5 h-1.5 bg-[#ffde59] shadow-[1px_1px_0px_#000] rounded-sm shrink-0"></span><span class="w-1.5 h-1.5 bg-[#ffde59] shadow-[1px_1px_0px_#000] rounded-sm shrink-0"></span><span class="w-1.5 h-1.5 bg-[#ffde59] shadow-[1px_1px_0px_#000] rounded-sm shrink-0"></span><span class="w-2.5 h-2.5 bg-secondary-container shadow-[1px_1px_0px_#000] rounded-full shrink-0 border border-black animate-pulse"></span><span class="w-1.5 h-1.5 bg-[#ffde59] shadow-[1px_1px_0px_#000] rounded-sm shrink-0"></span><span class="w-1.5 h-1.5 bg-[#ffde59] shadow-[1px_1px_0px_#000] rounded-sm shrink-0"></span></div></div><div class="pac-run-squad"><div class="flex items-center drop-shadow-[2px_2px_0px_#000000]"><svg class="w-6 h-6" viewBox="0 0 22 22"><g class="pac-mouth-top"><path d="M11 0 C4.9 0 0 4.9 0 11 L11 11 Z" fill="#ffde59"></path><path d="M11 0 C17.1 0 22 4.9 22 11 L11 11 Z" fill="#ffde59"></path></g><g class="pac-mouth-bottom"><path d="M0 11 C0 17.1 4.9 22 11 22 L11 11 Z" fill="#ffde59"></path><path d="M22 11 C22 17.1 17.1 22 11 22 L11 11 Z" fill="#ffde59"></path></g><circle cx="12" cy="5" fill="#000000" r="1.4"></circle></svg></div><div class="flex items-center gap-3.5"><div class="ghost-skirt-wiggle flex items-center drop-shadow-[1.5px_1.5px_0px_#000000]"><svg class="w-5 h-5" viewBox="0 0 20 20"><path d="M3 2 C1.5 2 0 3.8 0 5.8 L0 18 L3 16 L6 18 L10 16 L14 18 L17 16 L20 18 L20 5.8 C20 3.8 18.5 2 17 2 Z" fill="#df1e65"></path><circle cx="7" cy="7.5" fill="#ffffff" r="2.2"></circle><circle cx="14" cy="7.5" fill="#ffffff" r="2.2"></circle><circle cx="8.5" cy="7.5" fill="#001e2b" r="1.1"></circle><circle cx="15.5" cy="7.5" fill="#001e2b" r="1.1"></circle></svg></div><div class="ghost-skirt-wiggle flex items-center drop-shadow-[1.5px_1.5px_0px_#000000]" style="animation-delay:-0.15s;"><svg class="w-5 h-5" viewBox="0 0 20 20"><path d="M3 2 C1.5 2 0 3.8 0 5.8 L0 18 L3 16 L6 18 L10 16 L14 18 L17 16 L20 18 L20 5.8 C20 3.8 18.5 2 17 2 Z" fill="#b84418"></path><circle cx="7" cy="7.5" fill="#ffffff" r="2.2"></circle><circle cx="14" cy="7.5" fill="#ffffff" r="2.2"></circle><circle cx="8.5" cy="7.5" fill="#001e2b" r="1.1"></circle><circle cx="15.5" cy="7.5" fill="#001e2b" r="1.1"></circle></svg></div><div class="ghost-skirt-wiggle flex items-center drop-shadow-[1.5px_1.5px_0px_#000000]" style="animation-delay:-0.3s;"><svg class="w-5 h-5" viewBox="0 0 20 20"><path d="M3 2 C1.5 2 0 3.8 0 5.8 L0 18 L3 16 L6 18 L10 16 L14 18 L17 16 L20 18 L20 5.8 C20 3.8 18.5 2 17 2 Z" fill="#ffe16e"></path><circle cx="7" cy="7.5" fill="#ffffff" r="2.2"></circle><circle cx="14" cy="7.5" fill="#ffffff" r="2.2"></circle><circle cx="8.5" cy="7.5" fill="#001e2b" r="1.1"></circle><circle cx="15.5" cy="7.5" fill="#001e2b" r="1.1"></circle></svg></div></div></div></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center relative z-10">
+<!-- Left: Mascot Sticker Card -->
+<div class="lg:col-span-4 flex flex-col items-center sm:items-start bg-secondary-container p-space-md rounded-[12px] border-[3px] border-black shadow-[4px_4px_0px_#000000]">
+<div class="flex items-center justify-between w-full border-b-[2px] border-black pb-2 mb-2">
+<span class="font-headline-sm text-headline-sm uppercase text-on-secondary-fixed">Contact me !</span>
+<span class="font-label-sm text-label-sm bg-primary text-on-primary px-2 py-0.5 rounded font-bold">ORIGINAL IP</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2 py-1 relative"><div class="relative bg-surface-container-lowest text-on-surface border-[3px] border-black rounded-[10px] p-2.5 shadow-[3px_3px_0px_#000000] w-full mb-1"><div class="flex items-center justify-between mb-1.5"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-[18px]">alternate_email</span><label class="font-headline-sm text-headline-sm text-xs sm:text-sm uppercase font-bold text-on-surface cursor-pointer" for="contact-email-input">give me suggestion</label></div><span class="font-label-sm text-[10px] bg-secondary-container text-on-secondary-fixed font-bold px-1.5 py-0.5 rounded border border-black shadow-[1px_1px_0px_#000000] uppercase">Required</span></div><div class="relative w-full"><input class="w-full bg-surface-container text-on-surface font-body-md text-xs sm:text-sm border-[2px] border-black rounded-md px-2.5 py-1.5 shadow-[2px_2px_0px_#000000] placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:border-primary transition-all" id="contact-email-input" placeholder="name@domain.com" required="" type="email"><span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-[16px] pointer-events-none">mail</span></div><div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-surface-container-lowest border-r-[3px] border-b-[3px] border-black rotate-45"></div></div><div class="w-full flex flex-col items-center justify-center py-3 relative select-none"><style>@keyframes pixelQBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } } @keyframes qCoinSparkle { 0%, 100% { transform: scale(0.7) rotate(0deg); opacity: 0.2; } 50% { transform: scale(1.15) rotate(180deg); opacity: 1; } } @keyframes blockGlowPulse { 0%, 100% { filter: drop-shadow(0 0 6px rgba(255, 222, 89, 0.5)); } 50% { filter: drop-shadow(0 0 16px rgba(223, 30, 101, 0.75)); } }</style><div class="relative flex flex-col items-center cursor-pointer group" style="animation: pixelQBounce 2.2s ease-in-out infinite;"><div class="absolute -top-3 -left-3 w-4 h-4 bg-secondary-container border border-black rounded-sm pointer-events-none" style="animation: qCoinSparkle 1.8s ease-in-out infinite;"></div><div class="absolute -bottom-2 -right-3 w-3.5 h-3.5 bg-primary-container border border-black rounded-sm pointer-events-none" style="animation: qCoinSparkle 1.8s ease-in-out infinite 0.6s;"></div><div class="absolute top-1/2 -right-4 w-2.5 h-2.5 bg-white border border-black rounded-sm pointer-events-none" style="animation: qCoinSparkle 1.4s ease-in-out infinite 1s;"></div><div class="w-32 h-32 sm:w-36 sm:h-36 bg-[#fc9838] border-[3px] border-black rounded-[14px] shadow-[6px_6px_0px_#000000] relative flex flex-col justify-between p-2 overflow-hidden" style="animation: blockGlowPulse 3s ease-in-out infinite;"><div class="absolute inset-0 bg-gradient-to-b from-[#fc9838] via-[#e8702c] to-[#b84418] opacity-90"></div><div class="absolute top-1.5 left-1.5 w-2.5 h-2.5 bg-black rounded-full shadow-[1px_1px_0px_rgba(255,255,255,0.4)] z-10"></div><div class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-black rounded-full shadow-[1px_1px_0px_rgba(255,255,255,0.4)] z-10"></div><div class="absolute bottom-1.5 left-1.5 w-2.5 h-2.5 bg-black rounded-full shadow-[1px_1px_0px_rgba(255,255,255,0.4)] z-10"></div><div class="absolute bottom-1.5 right-1.5 w-2.5 h-2.5 bg-black rounded-full shadow-[1px_1px_0px_rgba(255,255,255,0.4)] z-10"></div><div class="relative w-full h-full flex items-center justify-center z-10"><svg class="w-16 h-20 sm:w-20 sm:h-24 drop-shadow-[3px_3px_0px_#000000]" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><path d="M4 2h8v2H4zM2 4h4v2H2zM10 4h4v3h-4zM6 7h6v2H6zM6 9h4v2H6zM6 13h4v2H6z" fill="#ffffff"></path><path d="M5 3h6v1H5zM3 5h2v1H3zM11 5h2v2h-2zM7 8h4v1H7zM7 10h2v1H7zM7 14h2v1H7z" fill="#ffe16e"></path></svg></div><div class="absolute inset-x-0 bottom-0 h-2 bg-black/25 z-10"></div></div></div><div class="w-24 h-3 bg-black/35 rounded-full blur-[1px] mt-2 transition-all duration-300 group-hover:scale-95"></div></div><div class="w-full bg-surface-container-lowest border-[3px] border-black rounded-[10px] p-2 shadow-[3px_3px_0px_#000000] flex flex-col gap-1.5"><div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded border border-black"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">edit_note</span><input class="w-full bg-transparent font-label-sm text-label-sm text-on-surface focus:outline-none placeholder:text-on-surface-variant" placeholder="Type suggestion or ideas..." type="text"></div><a class="w-full py-1.5 bg-primary text-on-primary font-label-sm text-label-sm uppercase font-bold border-[2px] border-black rounded shadow-[2px_2px_0px_#000000] hover:bg-inverse-surface hover:text-secondary-fixed transition-all flex items-center justify-center gap-1" href="mailto:sehueog86@gmail.com?subject=Project%20Suggestion%20%26%20Feedback"><span class="material-symbols-outlined text-[16px]">mail</span><span class="">Contact me with email</span></a></div></div>
+<div class="w-full text-center sm:text-left mt-2">
+<span class="font-label-sm text-label-sm uppercase font-bold block text-on-secondary-fixed">PIXEL HOP ARCADE SERIES</span>
+<p class="text-xs text-on-secondary-fixed-variant">Ready-to-rig After Effects &amp; Spine 2D Character asset pack.</p>
+</div>
+</div>
+<!-- Right: Content Directory Table -->
+<div class="lg:col-span-8 flex flex-col gap-space-sm -mt-2">
+<div class="flex items-center justify-between">
+<h4 class="font-headline-md text-headline-md uppercase text-white">Contact &amp; social media</h4>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest border-[2px] border-black px-2 py-0.5 rounded-full shadow-[2px_2px_0px_#000000]">5 CATEGORIES</span>
+</div>
+<div class="flex flex-col gap-2 -mt-2"><div class="bg-surface-container-lowest border-[2px] border-black rounded-[8px] p-space-sm flex items-center justify-between shadow-[2px_2px_0px_#000000] hover:bg-secondary-container transition-colors cursor-pointer"><div class="flex items-center gap-space-sm"><div class="w-6 h-6 rounded-[4px] bg-primary text-on-primary border border-black flex items-center justify-center shrink-0 shadow-[1px_1px_0px_#000000]"><span class="material-symbols-outlined text-[16px]">mail</span></div><span class="font-headline-sm text-headline-sm text-sm sm:text-base">firmancik77@gmail.com</span></div><span class="font-label-sm text-label-sm bg-primary text-on-primary px-2 py-0.5 rounded border border-black font-bold shadow-[1px_1px_0px_#000000] arcade-blink">AVAILABLE</span></div><div class="bg-surface-container-lowest border-[2px] border-black rounded-[8px] p-space-sm flex items-center justify-between shadow-[2px_2px_0px_#000000] hover:bg-secondary-container transition-colors cursor-pointer"><div class="flex items-center gap-space-sm"><div class="w-6 h-6 rounded-[4px] bg-tertiary-container text-on-tertiary-container border border-black flex items-center justify-center shrink-0 shadow-[1px_1px_0px_#000000]"><span class="material-symbols-outlined text-[16px]">call</span></div><span class="font-headline-sm text-headline-sm text-sm sm:text-base">+6285856458764</span></div><span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-fixed px-2 py-0.5 rounded border border-black font-bold shadow-[1px_1px_0px_#000000] arcade-blink">AVAILABLE!</span></div><div class="bg-surface-container-lowest border-[2px] border-black rounded-[8px] p-space-sm flex items-center justify-between shadow-[2px_2px_0px_#000000] hover:bg-secondary-container transition-colors cursor-pointer"><div class="flex items-center gap-space-sm"><img alt="Instagram Logo" class="w-6 h-6 object-contain inline-block shrink-0 rounded-[4px] border border-black shadow-[1px_1px_0px_#000000]" src="https://lh3.googleusercontent.com/aida/AEtjO1WhAn0H5qbHLsJUn6yTvq67DEc0aw7osLF-7jVoFJNAE0-Y4gkGNR19yr9G7uhcV3dWdm5z82MnJ7CMSalZGoDUJRfTxPi-z5yo9K8w0G-FjbE2GB9m88iUyDUzR76Ui4Jz62T0KytjbN2sOrbMhhLXlUn20mjbbWmMcyJPgpaS5mo1rMuUTQhQQgaDo6pYGQnL-H-QEBEHWWRVTrc6ZA2uLV06vu_AjSrDbEoHQFGNN_rwzGGLg77BZks"><span class="font-headline-sm text-headline-sm text-sm sm:text-base">@firmanomali</span></div><span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-fixed px-2 py-0.5 rounded border border-black font-bold shadow-[1px_1px_0px_#000000] arcade-blink">ONLINE!</span></div><div class="bg-surface-container-lowest border-[2px] border-black rounded-[8px] p-space-sm flex items-center justify-between shadow-[2px_2px_0px_#000000] hover:bg-secondary-container transition-colors cursor-pointer"><div class="flex items-center gap-space-sm"><img alt="TikTok Logo" class="w-6 h-6 object-contain inline-block shrink-0 rounded-[4px] border border-black shadow-[1px_1px_0px_#000000]" src="https://lh3.googleusercontent.com/aida/AEtjO1UY9sKmYtlApMC94tNC5swV3Ol_3N7V2uNNcMXp_pvPuH2PoeSbUNmHJq2PGtIl1Gz0oheWVOoOQlXgzE-SbFThwjb9BMC1nLVOemnmXsyNOiJqYHUAJimWxNPiMEmAsK7iI2Z0SHrfbtbfeK9-JDO2M7-qutwYYMnh3l8x2mw4EpsdkU9NXwHhb4DYUxPGvLYJQX2CVtZafSKPEoJ-a7-P2ISiDMeRPXd79rz54XNN-pGAOyPWN1Zwlg"><span class="font-headline-sm text-headline-sm text-sm sm:text-base">@orang_1764</span></div><span class="font-label-sm text-label-sm bg-primary text-on-primary px-2 py-0.5 rounded border border-black font-bold shadow-[1px_1px_0px_#000000]">ONLINE!</span></div><div class="bg-surface-container-lowest border-[2px] border-black rounded-[8px] p-space-sm flex items-center justify-between shadow-[2px_2px_0px_#000000] hover:bg-secondary-container transition-colors cursor-pointer"><div class="flex items-center gap-space-sm"><img alt="Facebook Logo" class="w-6 h-6 shrink-0 object-contain rounded-[4px] border border-black shadow-[1px_1px_0px_#000000]" src="https://lh3.googleusercontent.com/aida/AEtjO1VSd1X-K0Qk3T-2MlmoueCN0BnSN9HlXTCGa6Tqd1p4IN8pNgjdpuNcPh517ZLcpwxoRmO5FriO4MaQqDyKPP6PCL4rv5wbrGLiI9tgehHY00gExk1wQZCDtmdOc-h4C3Z8Xl_4lpSRaQxjiJsG4PWT_yWgRGaluJcRGvdPa5MbJCIEK7S2z2yLhxGeUMFZrJvbpnwlkx550GYeqk5i0cyJzCsiXNoomJAK88rwGBdHkiq7GjX6NxsGvI36"><span class="font-headline-sm text-headline-sm text-sm sm:text-base">Firman Pratama</span></div><span class="font-label-sm text-label-sm bg-primary text-on-primary px-2 py-0.5 rounded border border-black font-bold shadow-[1px_1px_0px_#000000]">ONLINE!</span></div></div>
+<!-- Directory Action Button -->
+<div class="pt-2 flex justify-end">
+<button class="px-space-md py-2 bg-inverse-surface text-inverse-on-surface font-label-lg text-label-lg uppercase border-[3px] border-black rounded-[8px] shadow-[3px_3px_0px_#000000] hover:bg-primary hover:text-on-primary hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#000000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[0px_0px_0px_#000000] transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+<span class="">thats all guys ngl</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: CALL TO ACTION FOOTER BANNER -->
+<section class="w-full bg-[#5c94fc] border-t-[3px] border-b-[3px] border-black px-gutter-sm sm:px-gutter py-space-xl text-center relative overflow-hidden select-none"><style>@keyframes marioCloudFloat1{0%{transform:translateX(-160px);}100%{transform:translateX(1380px);}}@keyframes marioCloudFloat2{0%{transform:translateX(1300px);}100%{transform:translateX(-200px);}}@keyframes marioCoinSpin{0%,100%{transform:scaleX(1) translateY(0);}50%{transform:scaleX(0.15) translateY(-6px);}}@keyframes qBlockPulse{0%,100%{transform:translateY(0);}50%{transform:translateY(-2px);}}@keyframes coinBounceGlitter{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(180deg);}}.mario-cloud-1{animation:marioCloudFloat1 32s linear infinite;will-change:transform;}.mario-cloud-2{animation:marioCloudFloat2 44s linear infinite;will-change:transform;}.mario-coin-anim{animation:marioCoinSpin 0.75s steps(6) infinite;}.mario-qblock-anim{animation:qBlockPulse 1.2s steps(2) infinite;}</style><div class="absolute inset-0 pointer-events-none z-0 overflow-hidden"><style class="">@keyframes marioCloudFloat1{0%{transform:translateX(-160px);}100%{transform:translateX(1380px);}}@keyframes marioCloudFloat2{0%{transform:translateX(1300px);}100%{transform:translateX(-200px);}}@keyframes marioCoinSpin{0%,100%{transform:scaleX(1) translateY(0);}50%{transform:scaleX(0.15) translateY(-6px);}}@keyframes qBlockPulse{0%,100%{transform:translateY(0);}50%{transform:translateY(-2px);}}@keyframes flagWave{0%,100%{transform:skewY(0deg) scaleX(1);}50%{transform:skewY(4deg) scaleX(0.92);}}@keyframes marioRunAndJumpTrack{0%{left:-120px;bottom:54px;}28%{left:calc(30% - 40px);bottom:54px;}34%{left:calc(36% - 20px);bottom:120px;}40%{left:calc(42%);bottom:54px;}60%{left:calc(62%);bottom:54px;}66%{left:calc(68%);bottom:116px;}72%{left:calc(74%);bottom:54px;}85%{left:calc(85%);bottom:54px;}92%{left:calc(88%);bottom:54px;}100%{left:calc(105%);bottom:54px;}}@keyframes marioLegSwapA{0%,49%{opacity:1;}50%,100%{opacity:0;}}@keyframes marioLegSwapB{0%,49%{opacity:0;}50%,100%{opacity:1;}}</style><!-- Floating Retro Clouds --><div class="absolute top-6 left-0 mario-cloud-1 opacity-90"><svg width="112" height="48" viewBox="0 0 112 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[3px_3px_0px_#000000]"><rect x="24" y="8" width="64" height="40" fill="#ffffff"></rect><rect x="8" y="16" width="96" height="32" fill="#ffffff"></rect><rect x="40" y="0" width="32" height="48" fill="#ffffff"></rect><rect x="0" y="24" width="112" height="24" fill="#ffffff"></rect><rect x="24" y="8" width="64" height="4" fill="#000000"></rect><rect x="40" y="0" width="32" height="4" fill="#000000"></rect><rect x="8" y="16" width="16" height="4" fill="#000000"></rect><rect x="88" y="16" width="16" height="4" fill="#000000"></rect><rect x="0" y="24" width="8" height="4" fill="#000000"></rect><rect x="104" y="24" width="8" height="4" fill="#000000"></rect><rect x="0" y="24" width="4" height="24" fill="#000000"></rect><rect x="108" y="24" width="4" height="24" fill="#000000"></rect><rect x="0" y="44" width="112" height="4" fill="#000000"></rect><rect x="44" y="22" width="4" height="12" fill="#000000"></rect><rect x="64" y="22" width="4" height="12" fill="#000000"></rect></svg></div><div class="absolute top-14 right-10 mario-cloud-2 opacity-85 hidden sm:block"><svg width="96" height="42" viewBox="0 0 96 42" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[3px_3px_0px_#000000]"><rect x="20" y="6" width="56" height="36" fill="#ffffff"></rect><rect x="6" y="14" width="84" height="28" fill="#ffffff"></rect><rect x="34" y="0" width="28" height="42" fill="#ffffff"></rect><rect x="0" y="20" width="96" height="22" fill="#ffffff"></rect><rect x="20" y="6" width="56" height="4" fill="#000000"></rect><rect x="34" y="0" width="28" height="4" fill="#000000"></rect><rect x="6" y="14" width="14" height="4" fill="#000000"></rect><rect x="76" y="14" width="14" height="4" fill="#000000"></rect><rect x="0" y="20" width="6" height="4" fill="#000000"></rect><rect x="90" y="20" width="6" height="4" fill="#000000"></rect><rect x="0" y="20" width="4" height="22" fill="#000000"></rect><rect x="92" y="20" width="4" height="22" fill="#000000"></rect><rect x="0" y="38" width="96" height="4" fill="#000000"></rect><rect x="38" y="18" width="4" height="10" fill="#000000"></rect><rect x="54" y="18" width="4" height="10" fill="#000000"></rect></svg></div><!-- Retro Green Hills in Background --><div class="absolute bottom-14 -left-12 sm:left-4 z-0 opacity-75"><svg width="200" height="140" viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[4px_4px_0px_#000000]"><ellipse cx="100" cy="140" rx="96" ry="130" fill="#00a800"></ellipse><ellipse cx="100" cy="140" rx="96" ry="130" stroke="#000000" stroke-width="4"></ellipse><ellipse cx="70" cy="136" rx="60" ry="90" fill="#38c838"></ellipse><rect x="82" y="46" width="6" height="18" rx="3" fill="#000000"></rect><rect x="112" y="46" width="6" height="18" rx="3" fill="#000000"></rect></svg></div><div class="absolute bottom-14 -right-16 sm:right-6 z-0 opacity-75"><svg width="240" height="160" viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[4px_4px_0px_#000000]"><ellipse cx="120" cy="160" rx="116" ry="150" fill="#008000"></ellipse><ellipse cx="120" cy="160" rx="116" ry="150" stroke="#000000" stroke-width="4"></ellipse><ellipse cx="90" cy="150" rx="80" ry="110" fill="#00a800"></ellipse><rect x="104" y="54" width="7" height="22" rx="3" fill="#000000"></rect><rect x="136" y="54" width="7" height="22" rx="3" fill="#000000"></rect></svg></div><!-- Mid-track Green Warp Pipe (Obstacle to jump over) --><div class="absolute bottom-14 left-[34%] z-10 hidden sm:flex flex-col items-center"><div class="border-[3px] border-black bg-[#00a800] rounded-[3px] shadow-[3px_3px_0px_#000000] relative overflow-hidden" style="width: 52px; height: 22px;"><div class="absolute inset-0 bg-gradient-to-r from-[#38c838] via-[#00a800] to-[#005000]"></div><div class="absolute top-0 left-1.5 w-1.5 h-full bg-[#80f080]/60"></div><div class="absolute top-0 right-1.5 w-2.5 h-full bg-[#003800]/50"></div></div><div class="border-x-[3px] border-black bg-[#00a800] shadow-[3px_3px_0px_#000000] relative overflow-hidden" style="width: 42px; height: 32px;"><div class="absolute inset-0 bg-gradient-to-r from-[#38c838] via-[#00a800] to-[#005000]"></div><div class="absolute top-0 left-1.5 w-1.5 h-full bg-[#80f080]/60"></div><div class="absolute top-0 right-1.5 w-2.5 h-full bg-[#003800]/50"></div></div></div><!-- Mystery '?' Blocks & Bricks Row --><div class="absolute top-10 left-16 hidden xl:flex items-center gap-1 z-10"><div class="w-8 h-8 bg-[#b84418] border-[2px] border-black rounded-[2px] shadow-[2px_2px_0px_#000000] relative flex flex-col justify-between p-0.5"><div class="flex justify-between border-b border-black/40 pb-0.5"><div class="w-2.5 h-1 bg-[#d86838] border border-black/50"></div><div class="w-2.5 h-1 bg-[#d86838] border border-black/50"></div></div><div class="flex justify-between"><div class="w-1.5 h-1.5 bg-[#d86838] border border-black/50"></div><div class="w-3 h-1.5 bg-[#d86838] border border-black/50"></div></div></div><div class="relative flex flex-col items-center mario-qblock-anim"><div class="w-5 h-6 mb-0.5 mario-coin-anim flex items-center justify-center"><div class="w-3.5 h-5 bg-[#ffe16e] border-[2px] border-black rounded-full flex items-center justify-center shadow-[1px_1px_0px_#000]"><div class="w-0.5 h-2.5 bg-[#b8860b] rounded-full"></div></div></div><div class="w-8 h-8 bg-[#fc9838] border-[2px] border-black rounded-[2px] shadow-[3px_3px_0px_#000000] flex items-center justify-center relative"><div class="absolute top-0.5 left-0.5 w-1 h-1 bg-black rounded-full"></div><div class="absolute top-0.5 right-0.5 w-1 h-1 bg-black rounded-full"></div><div class="absolute bottom-0.5 left-0.5 w-1 h-1 bg-black rounded-full"></div><div class="absolute bottom-0.5 right-0.5 w-1 h-1 bg-black rounded-full"></div><span class="font-mono font-black text-black text-[16px] leading-none drop-shadow-[1px_1px_0px_#ffffff]">?</span></div></div><div class="w-8 h-8 bg-[#b84418] border-[2px] border-black rounded-[2px] shadow-[2px_2px_0px_#000000] relative flex flex-col justify-between p-0.5"><div class="flex justify-between border-b border-black/40 pb-0.5"><div class="w-2.5 h-1 bg-[#d86838] border border-black/50"></div><div class="w-2.5 h-1 bg-[#d86838] border border-black/50"></div></div><div class="flex justify-between"><div class="w-1.5 h-1.5 bg-[#d86838] border border-black/50"></div><div class="w-3 h-1.5 bg-[#d86838] border border-black/50"></div></div></div></div><!-- Iconic 8-bit Goal Flagpole & Castle Stairs Structure --><div class="absolute bottom-14 right-10 sm:right-24 z-10 flex items-end select-none pointer-events-none drop-shadow-[3px_3px_0px_#000000]"><div class="relative flex flex-col items-center"><div class="w-4 h-4 rounded-full bg-[#38c838] border-[2px] border-black shadow-[1px_1px_0px_#000] relative z-20 flex items-center justify-center"><div class="w-1.5 h-1.5 rounded-full bg-white"></div></div><div class="w-2 h-44 bg-gradient-to-r from-[#e4e7ff] via-[#ffffff] to-[#dde1ff] border-x-[2px] border-black relative z-10"></div><div class="absolute top-5 -left-10 z-15" style="transform-origin: right center; animation: flagWave 1.4s ease-in-out infinite alternate;"><svg width="42" height="28" viewBox="0 0 42 28" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[2px_2px_0px_#000000]"><polygon points="42,0 0,14 42,28" fill="#38c838" stroke="#000000" stroke-width="2"></polygon><circle cx="28" cy="14" r="5" fill="#ffffff" stroke="#000000" stroke-width="1.5"></circle><circle cx="28" cy="14" r="2.5" fill="#df1e65"></circle></svg></div><div class="w-8 h-7 bg-[#fc9838] border-[2px] border-black rounded-t-[3px] shadow-[2px_2px_0px_#000000] flex flex-col justify-center items-center"><div class="w-5 h-2 bg-[#b84418] border border-black"></div></div></div><div class="flex items-end -ml-1"><div class="w-6 h-6 bg-[#fc9838] border-[2px] border-black flex items-center justify-center"><div class="w-3 h-3 bg-[#b84418]"></div></div><div class="w-6 h-12 bg-[#fc9838] border-[2px] border-black flex flex-col justify-between items-center py-1"><div class="w-3 h-3 bg-[#b84418]"></div><div class="w-3 h-3 bg-[#b84418]"></div></div><div class="w-6 h-18 bg-[#fc9838] border-[2px] border-black flex flex-col justify-between items-center py-1" style="height: 72px;"><div class="w-3 h-3 bg-[#b84418]"></div><div class="w-3 h-3 bg-[#b84418]"></div><div class="w-3 h-3 bg-[#b84418]"></div></div></div></div><!-- Animated 8-bit Pixel Mario Running and Leaping across the Stage --><div class="absolute z-20 pointer-events-none drop-shadow-[3px_3px_0px_#000000]" style="animation: 8.5s linear 0s infinite normal none running marioRunAndJumpTrack; will-change: left, bottom;"><div class="relative w-10 h-12 select-none"><svg class="w-full h-full" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><path d="M3 1h5v1H3zM2 2h9v1H2zM2 3h3v1H2zM2 4h4v1H2zM2 5h6v1H2z" fill="#ba1a1a"></path><path d="M5 3h2v2H5zM6 5h3v1H6zM9 4h1v1H9zM3 6h7v1H3zM2 7h10v1H2z" fill="#ffd9df"></path><path d="M7 3h1v1H7zM7 4h3v1H7zM6 4h1v1H6z" fill="#151a30"></path><path d="M3 8h8v3H3zM4 11h6v1H4z" fill="#006384"></path><path d="M2 8h2v3H2zM10 8h2v3h-2zM4 8h1v1H4zM9 8h1v1H9z" fill="#ba1a1a"></path><path d="M4 10h1v1H4zM9 10h1v1H9z" fill="#ffe16e"></path><g style="animation: marioLegSwapA 0.18s steps(1) infinite;"><path d="M2 11h3v3H2zM9 12h3v2H9z" fill="#705d00"></path><path d="M1 13h4v2H1zM9 14h4v1H9z" fill="#221b00"></path></g><g style="animation: marioLegSwapB 0.18s steps(1) infinite;"><path d="M3 12h3v2H3zM8 11h3v3H8z" fill="#705d00"></path><path d="M2 14h4v1H2zM8 13h4v2H8z" fill="#221b00"></path></g></svg><div class="absolute -top-3 -right-2 px-1 py-0.2 bg-secondary-container border border-black rounded text-[8px] font-mono font-bold text-on-secondary-fixed animate-bounce leading-tight shadow-[1px_1px_0px_#000]">GO!</div></div></div><!-- 8-Bit Ground Block Platform Strip --><div class="absolute bottom-0 left-0 right-0 h-14 border-t-[3px] border-black z-15 overflow-hidden flex flex-col"><div class="w-full h-3 bg-[#00a800] border-b-[2px] border-black flex items-end"><div class="w-full h-1.5 bg-[#38c838]"></div></div><div class="w-full h-11 bg-[#c84c0c] relative" style="background-image: linear-gradient(335deg, #a03400 23px, transparent 23px), linear-gradient(155deg, #e8702c 23px, transparent 23px); background-size: 32px 32px; background-color: #c84c0c;"><div class="absolute inset-0 bg-black/15"></div></div></div></div><div class="max-w-5xl mx-auto flex flex-col items-center gap-space-md relative z-10 border-[3px] border-black rounded-[16px] shadow-[8px_8px_0px_#000000] p-space-md sm:p-space-xl backdrop-blur-sm" style="background-color: rgba(255, 222, 89, 0.8);"><div class="px-space-sm py-1 bg-surface-container-lowest border-[2px] border-black rounded-full font-label-sm text-label-sm uppercase font-bold shadow-[2px_2px_0px_#000000] flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[18px]">celebration</span><span class="">LEVEL COMPLETED // THANK YOU FOR VISITING</span></div><h2 class="font-display-xl text-display-xl-mobile sm:text-display-xl uppercase tracking-tighter text-surface-container-lowest drop-shadow-[5px_5px_0px_#000000] glitch-text" style="-webkit-text-stroke: 3px rgb(0, 0, 0);">THANKS FOR WATCHING!</h2><p class="font-headline-sm text-headline-sm uppercase text-on-secondary-fixed max-w-2xl font-bold">Interested in collaborating, commissioning kinetic promo reels, or licensing character art? Let's connect!</p><div class="flex flex-wrap items-center justify-center gap-space-sm w-full pt-space-xs"><a class="px-space-md py-3 bg-surface-container-lowest text-on-surface font-label-lg text-label-lg uppercase border-[3px] border-black rounded-[8px] shadow-[4px_4px_0px_#000000] hover:bg-tertiary-fixed hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#000000] active:translate-x-1 active:translate-y-1 active:shadow-[0px_0px_0px_#000000] transition-all flex items-center gap-2" href="#showcase"><span class="material-symbols-outlined text-[20px]">folder_zip</span><span class="">PORTFOLIO ARCHIVE</span></a><a class="px-space-md py-3 bg-inverse-surface text-inverse-on-surface font-label-lg text-label-lg uppercase border-[3px] border-black rounded-[8px] shadow-[4px_4px_0px_#000000] hover:bg-primary hover:text-on-primary hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#000000] active:translate-x-1 active:translate-y-1 active:shadow-[0px_0px_0px_#000000] transition-all flex items-center gap-2" href="mailto:sehueog86@gmail.com?subject=Project%20Commission"><span class="material-symbols-outlined text-secondary-container text-[20px]">bolt</span><span class="">START A PROJECT</span></a></div><div class="mt-space-md pt-space-sm border-t-[2px] border-black w-full flex flex-col sm:flex-row items-center justify-between text-xs font-label-md text-label-md text-on-secondary-fixed uppercase"><span class="">© 2026 FIRMAN PRATAMA. ALL RIGHTS RESERVED.</span><span class="">CRAFTED WITH Y2K POP KINETICS &amp; NEUBRUTALIST CODE</span></div></div></section>
+</div></main><footer class="fixed bottom-0 left-0 right-0 z-40 w-full bg-surface-container-lowest border-t-[3px] border-black shadow-[0_-4px_0px_#000000]"><div class="w-full px-gutter py-2 sm:py-2.5 flex flex-col md:flex-row items-center justify-between gap-2 md:gap-space-md"><div class="flex items-center gap-space-sm"><div class="w-4 h-4 bg-primary rounded-full border-[2px] border-black"></div><span class="font-headline-sm text-headline-sm uppercase text-on-surface text-sm sm:text-base">FIRMAN PRATAMA STUDIO</span><span class="font-label-sm text-label-sm px-space-xs py-0.5 border-[2px] border-black bg-surface-variant text-on-surface rounded-full">VER 2.0.4</span></div><div class="flex items-center gap-space-md font-label-md text-label-md text-on-surface-variant text-xs sm:text-sm"><span class="uppercase">DISPATCH: TOKYO / Surabaya/ REMOTE</span><span class="uppercase font-bold text-on-surface">© 2026&nbsp;ALL SPRITES RESERVED.</span></div></div></footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- RETRO SPACE INVADER 8-BIT EASTER EGG LAYER -->
+<div id="space-invader-easteregg-layer" class="fixed inset-0 pointer-events-none z-40 overflow-hidden select-none">
+  <style>
+    @keyframes invaderWiggleTentacles {
+      0%, 49% { transform: scaleY(1); }
+      50%, 100% { transform: scaleY(-1); }
+    }
+    @keyframes invaderAlertPulse {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-4px) scale(1.15); }
+    }
+    @keyframes invaderLaserPulse {
+      0% { opacity: 1; filter: drop-shadow(0 0 4px #ffe16e); }
+      50% { opacity: 0.6; filter: drop-shadow(0 0 12px #df1e65); }
+      100% { opacity: 1; filter: drop-shadow(0 0 4px #ffe16e); }
+    }
+    .invader-sprite-glow {
+      filter: drop-shadow(3px 3px 0px #000000) drop-shadow(0 0 10px rgba(255, 222, 89, 0.6));
+      transition: transform 0.15s ease, filter 0.2s ease;
+    }
+    .invader-sprite-glow:hover {
+      transform: scale(1.15) rotate(-3deg);
+      filter: drop-shadow(4px 4px 0px #000000) drop-shadow(0 0 18px rgba(223, 30, 101, 0.9));
+    }
+    .invader-laser-shot {
+      animation: invaderLaserPulse 0.15s infinite alternate;
+    }
+  </style>
+
+  <!-- The Dynamic Invader Floating Unit -->
+  <div id="invader-actor" class="absolute pointer-events-auto cursor-pointer transition-all duration-500 ease-out" style="left: auto; top: 842px; opacity: 1; transform: scale(1); right: 18px;">
+    <!-- Bubble Notification Pop-up -->
+    <div id="invader-speech-bubble" class="absolute -top-9 -left-2 bg-secondary-container text-on-secondary-fixed border-[2px] border-black rounded-[6px] px-2 py-0.5 text-[10px] font-mono font-black shadow-[2px_2px_0px_#000000] flex items-center gap-1 transition-opacity duration-200 pointer-events-none opacity-0">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+      <span id="invader-speech-text" class="">INVADER SPOTTED! 👾</span>
+    </div>
+
+    <!-- 8-Bit Retro Space Invader SVG Sprite -->
+    <div id="invader-sprite-box" class="p-1.5 bg-inverse-surface border-[2.5px] border-black rounded-[10px] shadow-[4px_4px_0px_#000000] invader-sprite-glow flex flex-col items-center group">
+      <svg class="w-9 h-7 sm:w-11 sm:h-9 text-secondary-container fill-current drop-shadow-[1.5px_1.5px_0px_#000000]" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+        <rect x="3" y="0" width="1" height="1"></rect>
+        <rect x="8" y="0" width="1" height="1"></rect>
+        <rect x="4" y="1" width="1" height="1"></rect>
+        <rect x="7" y="1" width="1" height="1"></rect>
+        <rect x="3" y="2" width="6" height="1"></rect>
+        <rect x="2" y="3" width="8" height="1"></rect>
+        <rect x="1" y="4" width="10" height="1"></rect>
+        <rect x="0" y="5" width="1" height="2"></rect>
+        <rect x="2" y="5" width="8" height="1"></rect>
+        <rect x="11" y="5" width="1" height="2"></rect>
+        <rect x="2" y="6" width="1" height="1"></rect>
+        <rect x="9" y="6" width="1" height="1"></rect>
+        <rect x="1" y="7" width="2" height="1"></rect>
+        <rect x="9" y="7" width="2" height="1"></rect>
+        <rect x="4" y="7" width="4" height="1"></rect>
+        <!-- Invader Eyes (Crimson) -->
+        <rect x="3" y="4" width="1" height="1" fill="#df1e65"></rect>
+        <rect x="8" y="4" width="1" height="1" fill="#df1e65"></rect>
+      </svg>
+      <div class="flex items-center gap-1 mt-0.5">
+        <span class="text-[8px] font-mono font-bold text-tertiary-fixed tracking-tight">100 PTS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Laser Bolt FX Holder -->
+  <div id="invader-laser-beam" class="absolute pointer-events-none rounded-full invader-laser-shot z-30 hidden" style="width: 4px; height: 38px; background: linear-gradient(rgb(255, 225, 110), rgb(223, 30, 101)); border: 1px solid rgb(0, 0, 0); box-shadow: rgb(255, 225, 110) 0px 0px 10px; left: 1231.52px; top: 4029.98px;"></div>
+</div>
+
+<!-- SPACE INVADER CONTROLLER SCRIPT -->
+<script class="">
+(function(){
+  const actor = document.getElementById('invader-actor');
+  const bubble = document.getElementById('invader-speech-bubble');
+  const bubbleText = document.getElementById('invader-speech-text');
+  const laser = document.getElementById('invader-laser-beam');
+  if (!actor || !laser) return;
+
+  let isBusy = false;
+  let activeSide = 'left';
+  let spawnInterval = null;
+
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function showBubble(msg, duration = 1400) {
+    if (!bubble || !bubbleText) return;
+    bubbleText.textContent = msg;
+    bubble.classList.remove('opacity-0');
+    setTimeout(() => {
+      bubble.classList.add('opacity-0');
+    }, duration);
+  }
+
+  function spawnInvader() {
+    if (isBusy) return;
+    isBusy = true;
+
+    activeSide = Math.random() > 0.5 ? 'right' : 'left';
+    const viewHeight = window.innerHeight;
+    const randomY = getRandomInt(120, Math.max(180, viewHeight - 200));
+    actor.style.top = randomY + 'px';
+
+    if (activeSide === 'left') {
+      actor.style.left = '-100px';
+      actor.style.right = 'auto';
+    } else {
+      actor.style.left = 'auto';
+      actor.style.right = '-100px';
+    }
+
+    actor.style.opacity = '1';
+    actor.style.transform = 'scale(1)';
+
+    // Slide in partially peek
+    setTimeout(() => {
+      if (activeSide === 'left') {
+        actor.style.left = '18px';
+      } else {
+        actor.style.right = '18px';
+      }
+      showBubble('INVADER SPOTTED! 👾', 1200);
+    }, 100);
+
+    // If not clicked after 5 seconds, retreat peacefully
+    setTimeout(() => {
+      if (isBusy && actor.style.opacity === '1') {
+        retreat();
+      }
+    }, 5500);
+  }
+
+  function retreat() {
+    if (activeSide === 'left') {
+      actor.style.left = '-120px';
+    } else {
+      actor.style.right = '-120px';
+    }
+    setTimeout(() => {
+      actor.style.opacity = '0';
+      isBusy = false;
+    }, 600);
+  }
+
+  function triggerLaserShot(x, y) {
+    laser.style.left = x + 'px';
+    laser.style.top = y + 'px';
+    laser.classList.remove('hidden');
+    let posY = y;
+    let shotTimer = setInterval(() => {
+      posY += 18;
+      laser.style.top = posY + 'px';
+      if (posY > window.innerHeight) {
+        clearInterval(shotTimer);
+        laser.classList.add('hidden');
+      }
+    }, 16);
+  }
+
+  actor.addEventListener('click', function(e) {
+    e.stopPropagation();
+    showBubble('CRITICAL HIT! +500 PTS 💥', 900);
+    actor.style.transform = 'scale(1.4) rotate(15deg)';
+
+    const rect = actor.getBoundingClientRect();
+    triggerLaserShot(rect.left + rect.width / 2, rect.bottom);
+
+    setTimeout(() => {
+      actor.style.transform = 'scale(0) rotate(360deg)';
+      actor.style.opacity = '0';
+      setTimeout(() => {
+        isBusy = false;
+      }, 600);
+    }, 450);
+  });
+
+  actor.addEventListener('mouseenter', function() {
+    showBubble('SHOOT ME! ⚡', 1000);
+  });
+
+  // First spawn after 2.5s, then periodic check
+  setTimeout(spawnInvader, 2500);
+  spawnInterval = setInterval(() => {
+    if (!isBusy && Math.random() > 0.3) {
+      spawnInvader();
+    }
+  }, 9000);
+})();
+</script><div id="photo-lightbox-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 sm:p-6 transition-all duration-200" style="z-index: 9999;"><div class="relative w-full max-w-4xl bg-surface-container-lowest border-[3px] border-black rounded-[14px] shadow-[8px_8px_0px_#000000] overflow-hidden flex flex-col max-h-[92vh]"><div class="bg-inverse-surface text-inverse-on-surface px-4 py-2.5 border-b-[3px] border-black flex items-center justify-between gap-2 shrink-0"><div class="flex items-center gap-2 min-w-0"><span class="w-3 h-3 rounded-full bg-error border border-black shrink-0"></span><span class="w-3 h-3 rounded-full bg-secondary-container border border-black shrink-0"></span><span class="w-3 h-3 rounded-full bg-tertiary-fixed-dim border border-black shrink-0"></span><span class="font-headline-sm text-xs sm:text-sm uppercase tracking-wider text-inverse-on-surface ml-2 flex items-center gap-1.5 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary-container shrink-0">photo_library</span><span id="lightbox-title" class="truncate">SCENE_VIEWER.EXE // PHOTO SHOWCASE</span></span></div><button id="lightbox-close-btn" class="px-2.5 py-1 bg-primary text-on-primary font-bold text-xs uppercase rounded border-[2px] border-black shadow-[2px_2px_0px_#000000] hover:bg-secondary-container hover:text-black transition-colors flex items-center gap-1 cursor-pointer shrink-0"><span class="material-symbols-outlined text-[16px]">close</span><span class="">X CLOSE</span> [ESC]</button></div><div class="relative p-3 sm:p-4 bg-[#070814] flex items-center justify-center overflow-hidden flex-1 min-h-[0]"><button id="lb-prev" class="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-secondary-container text-on-secondary-fixed font-black text-2xl border-[3px] border-black shadow-[3px_3px_0px_#000000] hover:bg-primary hover:text-white transition-all cursor-pointer flex items-center justify-center select-none" aria-label="Previous scene"><span class="material-symbols-outlined">chevron_left</span></button><button id="lb-next" class="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-secondary-container text-on-secondary-fixed font-black text-2xl border-[3px] border-black shadow-[3px_3px_0px_#000000] hover:bg-primary hover:text-white transition-all cursor-pointer flex items-center justify-center select-none" aria-label="Next scene"><span class="material-symbols-outlined">chevron_right</span></button><img id="lightbox-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgcng9IjgiIGZpbGw9IiNlOGVhZWQiLz48cGF0aCBkPSJNMTcwIDEzMCBsMzAgNDAgbDIwLTE1IGw0MCA1NSBIMTQweiIgZmlsbD0iI2JkYzFjNiIvPjxjaXJjbGUgY3g9IjI1MCIgY3k9IjEyMCIgcj0iMTgiIGZpbGw9IiNiZGMxYzYiLz48L3N2Zz4=" alt="Full view preview" class="max-w-full max-h-[70vh] object-contain rounded border border-black/40 shadow-[0_0_20px_rgba(0,0,0,0.8)]"></div><div class="px-4 py-2.5 bg-surface-container border-b-[2px] border-black flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 justify-between shrink-0"><div class="flex items-center gap-2 flex-wrap min-w-0"><span id="lb-category" class="font-label-sm text-xs bg-secondary-container text-on-secondary-fixed font-black uppercase px-2 py-0.5 rounded border-[2px] border-black shadow-[1px_1px_0px_#000000] shrink-0">CATEGORY</span><span id="lightbox-caption" class="font-headline-sm text-xs sm:text-sm uppercase font-bold text-on-surface truncate">FIRMAN PRATAMA // ORIGINAL ARTWORK</span></div><div class="flex items-center gap-2 shrink-0"><span id="lb-counter" class="font-mono text-xs font-bold text-on-surface-variant uppercase">01 / 18</span><span class="font-label-sm text-xs bg-tertiary-container text-white px-2 py-0.5 rounded border-[2px] border-black shadow-[1px_1px_0px_#000000] font-bold">FULL RES</span></div></div><div class="px-4 py-2 bg-[#070814] text-white text-xs sm:text-sm leading-relaxed border-t-[3px] border-black shrink-0"><p id="lb-desc" class="font-body-sm text-body-sm">Original artwork from the FIRMAN PRATAMA studio archive.</p></div></div></div>
+
+
+
+<script class="">
+(function() {
+  const navItems = document.querySelectorAll('.nav-item');
+  const activeClasses = ['bg-primary-container', 'text-on-primary-container', 'border-[2px]', 'border-black', 'shadow-[2px_2px_0px_#000000]', 'font-bold'];
+  const inactiveClasses = ['text-on-surface-variant', 'hover:bg-secondary-container', 'hover:text-on-secondary-fixed', 'border-[2px]', 'border-transparent', 'font-medium'];
+
+  function setActive(targetId) {
+    navItems.forEach(item => {
+      const isMatch = item.getAttribute('data-target') === targetId;
+      if (isMatch) {
+        item.setAttribute('aria-current', 'page');
+        inactiveClasses.forEach(c => item.classList.remove(c));
+        activeClasses.forEach(c => item.classList.add(c));
+      } else {
+        item.removeAttribute('aria-current');
+        activeClasses.forEach(c => item.classList.remove(c));
+        inactiveClasses.forEach(c => item.classList.add(c));
+      }
+    });
+  }
+
+  navItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('data-target');
+      setActive(targetId);
+    });
+  });
+
+  const sectionIds = ['overview', 'bio-specs', 'photo-vault', 'showcase', 'contact-section'];
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  if ('IntersectionObserver' in window && sections.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px', threshold: 0.1 });
+
+    sections.forEach(sec => observer.observe(sec));
+  }
+})();
+</script>
+
+
+
+
+
+
+
+<script>
+(function() {
+  var modal = document.getElementById('photo-lightbox-modal');
+  var imgEl = document.getElementById('lightbox-img');
+  var titleEl = document.getElementById('lightbox-title');
+  var captionEl = document.getElementById('lightbox-caption');
+  var catEl = document.getElementById('lb-category');
+  var descEl = document.getElementById('lb-desc');
+  var counterEl = document.getElementById('lb-counter');
+  var closeBtn = document.getElementById('lightbox-close-btn');
+  var prevBtn = document.getElementById('lb-prev');
+  var nextBtn = document.getElementById('lb-next');
+  if (!modal || !imgEl) return;
+
+  var photos = [];
+  var current = -1;
+
+  function isPhotoImg(img) {
+    if (img.id === 'lightbox-img') return false;
+    if (modal.contains(img)) return false;
+    var alt = (img.getAttribute('alt') || '').toLowerCase();
+    if (alt.indexOf('logo') > -1) return false;
+    return true;
+  }
+
+  function collectPhotos() {
+    photos = [];
+    document.querySelectorAll('img').forEach(function(img) {
+      if (!isPhotoImg(img)) return;
+      var a = img.closest('a');
+      photos.push({
+        img: img,
+        src: (a && a.getAttribute('href')) || img.currentSrc || img.src,
+        alt: (img.getAttribute('alt') || 'Artwork')
+      });
+    });
+  }
+
+  function sceneMeta(alt) {
+    var s = alt.toLowerCase();
+    var meta = {
+      title: alt.toUpperCase(),
+      cat: 'ARTWORK',
+      desc: 'Original artwork from the FIRMAN PRATAMA studio archive.'
+    };
+    if (s.indexOf('sticker art') > -1) {
+      meta.cat = '2D ILLUSTRATION';
+      meta.desc = 'Hand-crafted sticker artwork loaded with pop color, chrome shine and playful character energy.';
+    } else if (s.indexOf('character art') > -1) {
+      meta.cat = 'CHARACTER DESIGN';
+      meta.desc = 'Original character illustration built with bold silhouettes, expressive attitude and vibrant palettes.';
+    } else if (s.indexOf('shot 01') > -1) {
+      meta.cat = 'MOTION CAMPAIGN'; meta.title = 'SHOT 01 // INSTANT PAY FAST & SECURE';
+      meta.desc = 'Scene 01 of the motion campaign: an instant pay, fast & secure mobile banking promo frame.';
+    } else if (s.indexOf('shot 02') > -1) {
+      meta.cat = 'MOTION CAMPAIGN'; meta.title = 'SHOT 02 // EARN REWARDS COIN BURST';
+      meta.desc = 'Scene 02 of the motion campaign: a rewards coin-burst frame pushing gamified engagement.';
+    } else if (s.indexOf('shot 03') > -1) {
+      meta.cat = 'MOTION CAMPAIGN'; meta.title = 'SHOT 03 // PAY ANYWHERE CARD SWIPE';
+      meta.desc = 'Scene 03 of the motion campaign: frictionless pay-anywhere card swipe highlight.';
+    } else if (s.indexOf('shot 04') > -1) {
+      meta.cat = 'MOTION CAMPAIGN'; meta.title = 'SHOT 04 // OUTRO MASCOT CONFETTI';
+      meta.desc = 'Scene 04 of the motion campaign: the outro mascot confetti celebration frame.';
+    } else if (s.indexOf('kinet') > -1) {
+      meta.cat = 'MOTION / TITLE DESIGN';
+      meta.desc = 'Kinet!x Rush - Hyper Drive opener: kinetic typography title sequence with high-energy timing.';
+    } else if (s.indexOf('y2k retro sticker') > -1) {
+      meta.cat = '2D ILLUSTRATION';
+      meta.desc = 'Y2K retro sticker collection - chrome blobs, sparkles and full 2000s arcade nostalgia.';
+    }
+    return meta;
+  }
+
+  function renderScene(idx) {
+    if (idx < 0 || idx >= photos.length) return;
+    current = idx;
+    var p = photos[current];
+    var meta = sceneMeta(p.alt);
+    imgEl.src = p.src;
+    titleEl.textContent = meta.title;
+    captionEl.textContent = p.alt.toUpperCase();
+    catEl.textContent = meta.cat;
+    descEl.textContent = meta.desc;
+    if (counterEl) {
+      counterEl.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(photos.length).padStart(2, '0');
+    }
+  }
+
+  function openLightbox(idx) {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+    renderScene(idx);
+  }
+
+  function closeLightbox() {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  function openForImg(img) {
+    collectPhotos();
+    for (var i = 0; i < photos.length; i++) {
+      if (photos[i].img === img) { openLightbox(i); return; }
+    }
+    if (photos.length) openLightbox(0);
+  }
+
+  function resolvePhotoFromTarget(t) {
+    if (!t || !t.closest) return null;
+    var a = t.closest('a');
+    var img = a ? a.querySelector('img') : (t.id === 'lightbox-img' ? null : null);
+    if (!img) img = t.closest('img');
+    return img;
+  }
+
+  document.addEventListener('click', function(e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+    if (modal.contains(t)) return;
+    var img = resolvePhotoFromTarget(t);
+    if (!img || !isPhotoImg(img)) return;
+    var a = img.closest('a');
+    e.preventDefault();
+    e.stopPropagation();
+    openForImg(img);
+  }, true);
+
+  if (closeBtn) closeBtn.addEventListener('click', function(e) { e.stopPropagation(); closeLightbox(); });
+  modal.addEventListener('click', function(e) { if (e.target === modal) closeLightbox(); });
+  if (prevBtn) prevBtn.addEventListener('click', function(e) { e.stopPropagation(); if (current > 0) renderScene(current - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function(e) { e.stopPropagation(); if (current < photos.length - 1) renderScene(current + 1); });
+  document.addEventListener('keydown', function(e) {
+    if (modal.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft' && current > 0) renderScene(current - 1);
+    if (e.key === 'ArrowRight' && current < photos.length - 1) renderScene(current + 1);
+  });
+})();
+</script>
+<script>
+(function () {
+  var HEADER_PAD = 5;
+  function headerHeight() {
+    var el = document.querySelector('header');
+    return el ? el.getBoundingClientRect().height : 0;
+  }
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+  function smoothScrollTo(targetY, duration) {
+    var startY = window.pageYOffset || document.documentElement.scrollTop;
+    var delta = targetY - startY;
+    if (Math.abs(delta) < 2) return;
+    var start = null;
+    function step(ts) {
+      if (start === null) start = ts;
+      var p = Math.min(1, (ts - start) / duration);
+      window.scrollTo(0, startY + delta * easeInOutCubic(p));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!link) return;
+    var raw = link.getAttribute('href');
+    if (!raw || raw === '#' || raw.charAt(1) === '!') return;
+    var target = document.getElementById(raw.slice(1));
+    if (!target) return;
+    var top = target.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - headerHeight() - HEADER_PAD;
+    e.preventDefault();
+    smoothScrollTo(Math.max(0, top), 750);
+    try { history.replaceState(null, '', raw); } catch (err) {}
+    link.setAttribute('aria-current', 'true');
+    var nav = link.closest ? link.closest('nav') : null;
+    if (nav) {
+      Array.prototype.forEach.call(nav.querySelectorAll('a[aria-current="true"]'), function (a2) {
+        if (a2 !== link) a2.removeAttribute('aria-current');
+      });
+}
+  });
+})();
+</script>
+
+</body></html>
